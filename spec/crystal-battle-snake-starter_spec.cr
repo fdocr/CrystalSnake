@@ -1,6 +1,6 @@
 require "./spec_helper"
 
-describe Crystal::Battle::Snake::Starter do
+describe "Crystal Battle Snake" do
   # TODO: Write tests
 
   it "works" do

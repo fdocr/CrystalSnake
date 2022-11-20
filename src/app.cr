@@ -13,7 +13,7 @@ get "/" do
     "color": "#777777",
     "head": "default",
     "tail": "default",
-    "version": "0.0.1-beta"
+    "version": {{ `shards version "#{__DIR__}"`.chomp.stringify }}
   }.to_json
 end
 

@@ -1,12 +1,12 @@
-name: crystal-battle-snake-starter
+name: CrystalSnake
 version: 0.1.0
 
 authors:
   - Fernando Valverde <fernando@fdo.cr>
 
 targets:
-  crystal-battle-snake-starter:
-    main: src/crystal-battle-snake-starter.cr
+  crystal_snake:
+    main: src/app.cr
 
 dependencies:
   kemal:
