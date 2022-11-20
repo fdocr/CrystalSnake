@@ -17,4 +17,15 @@ class BattleSnake::Board
 
   @[JSON::Field(key: "hazards")]
   property hazards : Array(Point)
+
+  @snake_points = [] of Point
+  getter snake_points : Array(Point)
+
+  def after_initialize
+    snakes.each do |snake|
+      snake.body.each do |point|
+        @snake_points << point unless @snake_points.includes?(point)
+      end
+    end
+  end
 end

@@ -1,5 +1,6 @@
 require "kemal"
 require "./battle_snake/**"
+require "./strategy/**"
 
 before_all do |env|
   env.response.content_type = "application/json"
@@ -17,34 +18,21 @@ get "/" do
 end
 
 post "/start" do |env|
-  turn = env.params.json["turn"].as(Int)
-  game = BattleSnake::Game.from_json(env.params.json["game"].to_json)
-  board = BattleSnake::Board.from_json(env.params.json["board"].to_json)
-  you = BattleSnake::Snake.from_json(env.params.json["you"].to_json)
+  context = BattleSnake::Context.from_json(env.params.json.to_json)
 end
 
 post "/move" do |env|
-  turn = env.params.json["turn"].as(Int)
-  game = BattleSnake::Game.from_json(env.params.json["game"].to_json)
-  board = BattleSnake::Board.from_json(env.params.json["board"].to_json)
-  you = BattleSnake::Snake.from_json(env.params.json["you"].to_json)
-
-  move = [ "up", "down", "left", "right" ].sample
+  context = BattleSnake::Context.from_json(env.params.json.to_json)
+  move = Strategy::RandomValid.new(context).move
 
   res = { "move": move, "shout": "Moving #{move}!" }
-
-  puts "RES: #{res}"
-
+  puts "RESPONSE: #{res}"
   res.to_json
 end
 
 post "/end" do |env|
-  turn = env.params.json["turn"].as(Int)
-  game = BattleSnake::Game.from_json(env.params.json["game"].to_json)
-  board = BattleSnake::Board.from_json(env.params.json["board"].to_json)
-  you = BattleSnake::Snake.from_json(env.params.json["you"].to_json)
-
-  puts "END (turn #{turn}): #{board.inspect} - #{you.inspect}"
+  context = BattleSnake::Context.from_json(env.params.json.to_json)
+  puts "END CONTEXT: #{context.inspect}"
 end
 
 Kemal.run
