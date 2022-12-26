@@ -1,10 +1,13 @@
 class Strategy::ChaseFood < Strategy::Base
   def move
-    res = Utils.a_star(BattleSnake::Point.new(3,3), BattleSnake::Point.new(3,6), @context)
+    res = Utils.a_star(@context.you.head, @context.board.food.first, @context)
 
     puts "A* result: #{res.inspect}"
 
-    # No valid moves available => move up
-    "up"
+    # Use A* move if possible
+    return res[:moves].first unless res[:moves].empty?
+
+    # RandomValid fallback
+    Strategy::RandomValid.new(@context).move
   end
 end
