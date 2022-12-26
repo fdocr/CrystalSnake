@@ -1,6 +1,7 @@
 class Strategy::RandomValid < Strategy::Base
   def move
-    return @context.valid_moves.sample unless @context.valid_moves.empty?
+    valid_moves = @context.valid_moves(@context.you.head)[:moves]
+    return valid_moves.sample unless valid_moves.empty?
 
     # No valid moves available => move up
     "up"

@@ -15,33 +15,34 @@ class BattleSnake::Context
   @[JSON::Field(key: "you")]
   property you : Snake
 
-  @valid_moves = [] of String
-  @valid_moves_loaded = false
+  def valid_moves(point : Point)
+    moves = [] of String
+    neighbors = {} of String => Point
 
-  def valid_moves
-    return @valid_moves if @valid_moves_loaded
-
-    if you.head.y < (board.height - 1)
-      target_point = Point.new(you.head.x, you.head.y + 1)
-      @valid_moves << "up" unless board.snake_points.includes?(target_point)
+    up = point.up
+    if up.y < board.height #&& !board.snake_points.includes?(up)
+      moves << "up"
+      neighbors["up"] = up
     end
 
-    if you.head.x > 0
-      target_point = Point.new(you.head.x - 1, you.head.y)
-      @valid_moves << "left" unless board.snake_points.includes?(target_point)
+    left = point.left
+    if left.x >= 0 #&& !board.snake_points.includes?(left)
+      moves << "left"
+      neighbors["left"] = left
     end
 
-    if you.head.y > 0
-      target_point = Point.new(you.head.x, you.head.y - 1)
-      @valid_moves << "down" unless board.snake_points.includes?(target_point)
+    down = point.down
+    if down.y >= 0 #&& !board.snake_points.includes?(down)
+      moves << "down"
+      neighbors["down"] = down
     end
 
-    if you.head.x < (board.width - 1)
-      target_point = Point.new(you.head.x + 1, you.head.y)
-      @valid_moves << "right" unless board.snake_points.includes?(target_point)
+    right = point.right
+    if right.x < board.width #&& !board.snake_points.includes?(right)
+      moves << "right"
+      neighbors["right"] = right
     end
 
-    @valid_moves_loaded = true
-    @valid_moves
+    { moves: moves, neighbors: neighbors }
   end
 end

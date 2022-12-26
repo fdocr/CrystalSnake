@@ -11,6 +11,8 @@ targets:
 dependencies:
   kemal:
     github: kemalcr/kemal
+  priority-queue:
+    github: spider-gazelle/priority-queue
 
 development_dependencies:
   sam:
