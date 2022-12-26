@@ -1,6 +1,7 @@
-class Strategy::ChaseFood < Strategy::Base
+class Strategy::ChaseRandomFood < Strategy::Base
   def move
-    res = Utils.a_star(@context.you.head, @context.board.food.first, @context)
+    # Chase a random food
+    res = Utils.a_star(@context.you.head, @context.board.food.sample, @context)
 
     puts "A* result: #{res.inspect}"
 
