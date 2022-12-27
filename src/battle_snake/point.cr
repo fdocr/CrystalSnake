@@ -1,5 +1,7 @@
 require "json"
 
+# Represents a Point (x,y) coordinate on the board with some helper methods for
+# processing of the board (i.e. `#move?`)
 class BattleSnake::Point
   include Comparable(Point)
   include JSON::Serializable

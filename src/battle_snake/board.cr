@@ -1,5 +1,10 @@
 require "json"
 
+# Represents the Board as it arrives from the BattleSnake API endpoint.
+#
+# *@snake_points* is an `Array(BattleSnake::Point)` variable populated when a
+# Board is initialized and contains all the Points that are currently occupied
+# by a snake (would represent a collision).
 class BattleSnake::Board
   include JSON::Serializable
 
@@ -18,8 +23,6 @@ class BattleSnake::Board
   @[JSON::Field(key: "hazards")]
   property hazards : Array(Point)
 
-  # `Array(Point)` variable populated when a Board is initialized that contains
-  # all hazards that would cause a collision
   @snake_points = [] of Point
   getter snake_points : Array(Point)
 
