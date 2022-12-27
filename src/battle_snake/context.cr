@@ -1,7 +1,7 @@
 require "json"
 
 # A BattleSnake::Context is the representation of the game as it arrives from
-# the [Webhook API](https://docs.battlesnake.com/api) request to `app.cr`
+# the [Webhook API](https://docs.battlesnake.com/api) request to `src/app.cr`
 # endpoints.
 #
 # The context's key method is `#valid_moves`
