@@ -166,17 +166,17 @@ make sam dev</code></pre>
 </a>Development</h2>
 <p>For local development I use the <a href="https://github.com/BattlesnakeOfficial/rules/tree/main/cli">BattleSnake CLI</a> with the local server running. A basic example looks like this:</p>
 <pre><code class="language-bash">battlesnake play -W 11 -H 11 --name dev --url http://localhost:8080 -g solo -v</code></pre>
-<h2><a id="usage-architecture" class="anchor" href="#usage-architecture">
+<h2><a id="usage" class="anchor" href="#usage">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
-</a>Usage / Architecture</h2>
-<p>I strongly recommend reading the docs in <a href="fdocr.github.io/CrystalSnake/">fdocr.github.io/CrystalSnake/</a> because you can find detailed information about each class and method hosted there :)</p>
-<h4><a id="strategies" class="anchor" href="#strategies">
+</a>Usage</h2>
+<p>I strongly recommend reading the docs in <a href="https://fdocr.github.io/CrystalSnake/#usage">https://fdocr.github.io/CrystalSnake/</a> because you can find detailed information about each class and method hosted there :)</p>
+<h4><a id="strategies-architecture" class="anchor" href="#strategies-architecture">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
-</a>Strategies</h4>
+</a>Strategies &amp; Architecture</h4>
 <p>The server is built on the <code>src/app.cr</code> file and you can choose to use any of the available strategies (<a href="https://github.com/fdocr/CrystalSnake/tree/main/src/strategy">list available here</a>).</p>
 <p>All strategies inherit from <code>Stategy::Base</code>, they are initialized with a <code><a href="BattleSnake/Context.html">BattleSnake::Context</a></code> and you call <code>#move</code> method to chose a move to respond with.</p>
 <p>With this interface you can create new strategies and even re-use them within each other. For example <code><a href="Strategy/ChaseClosestFood.html">Strategy::ChaseClosestFood</a></code> uses the <code><a href="Strategy/RandomValid.html">Strategy::RandomValid</a></code> strategy when reachable food doesn't exist on the board.</p>
