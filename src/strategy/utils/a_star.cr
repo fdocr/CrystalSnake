@@ -1,5 +1,20 @@
 require "priority-queue"
 
+# Implementation of A* Search Algorithm
+# ([read more](https://en.wikipedia.org/wiki/A*_search_algorithm)).
+#
+# It receives Point *a* (start) and *b* (objective), along with a
+# BattleSnake::Context to access the game state. It returns a hash with
+# `:route` (`Array(BattleSnake::Point)`) and `:moves` (`Array(String)`). They
+# represent the points in the route and the moves ("up"/"left"/etc.) to take
+# that path from point *a* to *b*. Both arrays will be empty if the context
+# makes it impossible to find a valid route.
+#
+# NOTE: Implemented using the `spider-gazelle/priority-queue` project on GitHub
+# NOTE: Naive Manhattan Distance used for estimation function of the algorithm
+# NOTE: Performance can be optimized on data structure lookups and instance
+# initializations when using helper methods, i.e.
+# `BattleSnake::Context#valid_moves`
 def Strategy::Utils.a_star(a : BattleSnake::Point, b : BattleSnake::Point, context : BattleSnake::Context)
   queue = Priority::Queue(BattleSnake::Point).new
   came_from = {} of String => BattleSnake::Point

@@ -25,6 +25,7 @@ post "/move" do |env|
   context = BattleSnake::Context.from_json(env.params.json.to_json)
   # move = Strategy::RandomValid.new(context).move
   move = Strategy::ChaseRandomFood.new(context).move
+  # move = Strategy::ChaseClosestFood.new(context).move
 
   res = { "move": move, "shout": "Moving #{move}!" }
   puts "RESPONSE: #{res}"
