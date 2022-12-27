@@ -18,6 +18,8 @@ class BattleSnake::Board
   @[JSON::Field(key: "hazards")]
   property hazards : Array(Point)
 
+  # `Array(Point)` variable populated when a Board is initialized that contains
+  # all hazards that would cause a collision
   @snake_points = [] of Point
   getter snake_points : Array(Point)
 
