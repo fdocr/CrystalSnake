@@ -22,11 +22,11 @@ For local development I use the [BattleSnake CLI](https://github.com/Battlesnake
 battlesnake play -W 11 -H 11 --name dev --url http://localhost:8080 -g solo -v
 ```
 
-## Usage / Architecture
+## Usage
 
-I strongly recommend reading the docs in [https://fdocr.github.io/CrystalSnake/](https://fdocr.github.io/CrystalSnake/) because you can find detailed information about each class and method hosted there :)
+I strongly recommend reading the docs in [https://fdocr.github.io/CrystalSnake/](https://fdocr.github.io/CrystalSnake/#usage-architecture) because you can find detailed information about each class and method hosted there :)
 
-#### Strategies
+#### Strategies & Architecture
 
 The server is built on the `src/app.cr` file and you can choose to use any of the available strategies ([list available here](https://github.com/fdocr/CrystalSnake/tree/main/src/strategy)).
 
