@@ -24,7 +24,7 @@ battlesnake play -W 11 -H 11 --name dev --url http://localhost:8080 -g solo -v
 
 ## Usage / Architecture
 
-I strongly recommend reading the docs in [fdocr.github.io/CrystalSnake/](fdocr.github.io/CrystalSnake/) because you can find detailed information about each class and method hosted there :)
+I strongly recommend reading the docs in [https://fdocr.github.io/CrystalSnake/](https://fdocr.github.io/CrystalSnake/) because you can find detailed information about each class and method hosted there :)
 
 #### Strategies
 
