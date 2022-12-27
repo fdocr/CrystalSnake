@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Upload docs
 on:
   push:
     branches:
@@ -17,7 +17,7 @@ jobs:
         uses: crystal-lang/install-crystal@v1
 
       - name: Build docs
-        run: crystal docs
+        run: shards && crystal docs
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
