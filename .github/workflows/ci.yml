@@ -24,13 +24,5 @@ jobs:
       - name: Install shards
         run: shards update
 
-      - name: Redis
-        uses: shogo82148/actions-setup-redis@v1
-        id: main_redis
-        with:
-          redis-version: 6.2
-
-      - run: redis-cli info | grep version
-
       - name: Run tests
         run: make sam test
