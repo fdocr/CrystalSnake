@@ -1,0 +1,28 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download source
+        uses: actions/checkout@v3
+
+      - name: Install Crystal
+        uses: crystal-lang/install-crystal@v1
+
+      - name: Cache shards
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/shards
+          key: shards-${{ hashFiles('shard.yml') }}
+          restore-keys: ${{ runner.os }}-shards-
+
+      - name: Install shards
+        run: shards update
+
+      - name: Run tests
+        run: make sam test

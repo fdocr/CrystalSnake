@@ -28,13 +28,11 @@ post "/move" do |env|
   # move = Strategy::ChaseClosestFood.new(context).move
 
   res = { "move": move, "shout": "Moving #{move}!" }
-  puts "RESPONSE: #{res}"
   res.to_json
 end
 
 post "/end" do |env|
   context = BattleSnake::Context.from_json(env.params.json.to_json)
-  puts "END CONTEXT: #{context.inspect}"
 end
 
 Kemal.run
