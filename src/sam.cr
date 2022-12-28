@@ -13,4 +13,8 @@ task "dev" do
   sentry.run
 end
 
+task "test" do
+  system "KEMAL_ENV=test crystal spec"
+end
+
 Sam.help
