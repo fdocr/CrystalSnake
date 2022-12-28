@@ -1,0 +1,36 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main, flood-fill]
+jobs:
+  Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download source
+        uses: actions/checkout@v2
+
+      - name: Install Crystal
+        uses: crystal-lang/install-crystal@v1
+
+      - name: Cache shards
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/shards
+          key: shards-${{ hashFiles('shard.yml') }}
+          restore-keys: ${{ runner.os }}-shards-
+
+      - name: Install shards
+        run: shards update
+
+      - name: Redis
+        uses: shogo82148/actions-setup-redis@v1
+        id: main_redis
+        with:
+          redis-version: 6.2
+
+      - run: redis-cli info | grep version
+
+      - name: Run tests
+        run: make sam test

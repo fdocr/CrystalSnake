@@ -1,8 +1,7 @@
 name: Upload docs
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 permissions:
   contents: write
 jobs:
