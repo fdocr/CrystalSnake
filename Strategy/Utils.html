@@ -178,7 +178,7 @@
   </h2>
   
     
-      <a href="https://github.com/fdocr/CrystalSnake/blob/bdc052bd55cfca682032b881b818aec3b8e73db6/src/strategy/utils.cr#L1" target="_blank">
+      <a href="https://github.com/fdocr/CrystalSnake/blob/232896df66b5c6b1bb5556c41dfadab424ab335f/src/strategy/utils.cr#L1" target="_blank">
         strategy/utils.cr
       </a>
     
@@ -205,6 +205,13 @@
         <a href="#a_star%28a%3ABattleSnake%3A%3APoint%2Cb%3ABattleSnake%3A%3APoint%2Ccontext%3ABattleSnake%3A%3AContext%29-class-method" class="signature"><strong>.a_star</strong>(a : BattleSnake::Point, b : BattleSnake::Point, context : BattleSnake::Context)</a>
         
           <div class="summary"><p>Implementation of A* Search Algorithm (<a href="https://en.wikipedia.org/wiki/A*_search_algorithm">read more</a>).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#flood_fill%28a%3ABattleSnake%3A%3APoint%2Ccontext%3ABattleSnake%3A%3AContext%29-class-method" class="signature"><strong>.flood_fill</strong>(a : BattleSnake::Point, context : BattleSnake::Context)</a>
+        
+          <div class="summary"><p>Implementation of Flood Fill (<a href="https://en.wikipedia.org/wiki/Flood_fill">read more</a>).</p></div>
         
       </li>
     
@@ -280,7 +287,32 @@ initializations when using helper methods, i.e.
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/bdc052bd55cfca682032b881b818aec3b8e73db6/src/strategy/utils/a_star.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/232896df66b5c6b1bb5556c41dfadab424ab335f/src/strategy/utils/a_star.cr#L18" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="flood_fill(a:BattleSnake::Point,context:BattleSnake::Context)-class-method">
+      <div class="signature">
+        
+        def self.<strong>flood_fill</strong>(a : <a href="../BattleSnake/Point.html">BattleSnake::Point</a>, context : <a href="../BattleSnake/Context.html">BattleSnake::Context</a>)
+
+        <a class="method-permalink" href="#flood_fill%28a%3ABattleSnake%3A%3APoint%2Ccontext%3ABattleSnake%3A%3AContext%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Implementation of Flood Fill
+(<a href="https://en.wikipedia.org/wiki/Flood_fill">read more</a>).</p>
+<p>It receives a BattleSnake::Point <em>a</em> and a BattleSnake::Context <em>context</em> to
+start off a Flood Fill and returns a Set(BattleSnake::Point) with all the
+points reachable to that area on the board</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/232896df66b5c6b1bb5556c41dfadab424ab335f/src/strategy/utils/flood_fill.cr#L9" target="_blank">View source</a>]
         
       </div>
     </div>
