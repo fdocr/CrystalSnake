@@ -1,4 +1,5 @@
 require "kemal"
+require "./l_tree"
 require "./battle_snake/**"
 require "./strategy/**"
 
