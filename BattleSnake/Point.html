@@ -211,7 +211,7 @@ processing of the board (i.e. <code><a href="../BattleSnake/Point.html#move%3F%2
   </h2>
   
     
-      <a href="https://github.com/fdocr/CrystalSnake/blob/cb5b6e95cdd1f91847eae19eaca392ea28ced605/src/battle_snake/point.cr#L5" target="_blank">
+      <a href="https://github.com/fdocr/CrystalSnake/blob/486dbfa9a3e45d7620ae5fd188a64e2e72670c32/src/battle_snake/point.cr#L5" target="_blank">
         battle_snake/point.cr
       </a>
     
@@ -285,6 +285,13 @@ processing of the board (i.e. <code><a href="../BattleSnake/Point.html#move%3F%2
         <a href="#left-instance-method" class="signature"><strong>#left</strong></a>
         
           <div class="summary"><p>Returns a new Point directly left from the instance</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#move%28direction%29-instance-method" class="signature"><strong>#move</strong>(direction)</a>
+        
+          <div class="summary"><p>Returns the point when it moves in a direction.</p></div>
         
       </li>
     
@@ -412,7 +419,7 @@ processing of the board (i.e. <code><a href="../BattleSnake/Point.html#move%3F%2
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/cb5b6e95cdd1f91847eae19eaca392ea28ced605/src/battle_snake/point.cr#L16" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/486dbfa9a3e45d7620ae5fd188a64e2e72670c32/src/battle_snake/point.cr#L16" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -428,7 +435,7 @@ processing of the board (i.e. <code><a href="../BattleSnake/Point.html#move%3F%2
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/cb5b6e95cdd1f91847eae19eaca392ea28ced605/src/battle_snake/point.cr#L7" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/486dbfa9a3e45d7620ae5fd188a64e2e72670c32/src/battle_snake/point.cr#L7" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -449,7 +456,7 @@ processing of the board (i.e. <code><a href="../BattleSnake/Point.html#move%3F%2
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/cb5b6e95cdd1f91847eae19eaca392ea28ced605/src/battle_snake/point.cr#L20" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/486dbfa9a3e45d7620ae5fd188a64e2e72670c32/src/battle_snake/point.cr#L20" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -498,7 +505,7 @@ or <code>nil</code> if the two objects are not comparable.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/cb5b6e95cdd1f91847eae19eaca392ea28ced605/src/battle_snake/point.cr#L24" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/486dbfa9a3e45d7620ae5fd188a64e2e72670c32/src/battle_snake/point.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -519,7 +526,7 @@ or <code>nil</code> if the two objects are not comparable.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/cb5b6e95cdd1f91847eae19eaca392ea28ced605/src/battle_snake/point.cr#L89" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/486dbfa9a3e45d7620ae5fd188a64e2e72670c32/src/battle_snake/point.cr#L106" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -540,7 +547,29 @@ or <code>nil</code> if the two objects are not comparable.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/cb5b6e95cdd1f91847eae19eaca392ea28ced605/src/battle_snake/point.cr#L84" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/486dbfa9a3e45d7620ae5fd188a64e2e72670c32/src/battle_snake/point.cr#L101" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="move(direction)-instance-method">
+      <div class="signature">
+        
+        def <strong>move</strong>(direction)
+
+        <a class="method-permalink" href="#move%28direction%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the point when it moves in a direction. Works the same way as #up,
+left, etc. but with a string parameter so it's easier to manipulate</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/486dbfa9a3e45d7620ae5fd188a64e2e72670c32/src/battle_snake/point.cr#L80" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -580,7 +609,7 @@ numbers will return valid results but aren't needed or practical.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/cb5b6e95cdd1f91847eae19eaca392ea28ced605/src/battle_snake/point.cr#L63" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/486dbfa9a3e45d7620ae5fd188a64e2e72670c32/src/battle_snake/point.cr#L63" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -601,7 +630,7 @@ numbers will return valid results but aren't needed or practical.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/cb5b6e95cdd1f91847eae19eaca392ea28ced605/src/battle_snake/point.cr#L94" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/486dbfa9a3e45d7620ae5fd188a64e2e72670c32/src/battle_snake/point.cr#L111" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -624,7 +653,7 @@ numbers will return valid results but aren't needed or practical.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/cb5b6e95cdd1f91847eae19eaca392ea28ced605/src/battle_snake/point.cr#L34" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/486dbfa9a3e45d7620ae5fd188a64e2e72670c32/src/battle_snake/point.cr#L34" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -645,7 +674,7 @@ numbers will return valid results but aren't needed or practical.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/cb5b6e95cdd1f91847eae19eaca392ea28ced605/src/battle_snake/point.cr#L79" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/486dbfa9a3e45d7620ae5fd188a64e2e72670c32/src/battle_snake/point.cr#L96" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -661,7 +690,7 @@ numbers will return valid results but aren't needed or practical.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/cb5b6e95cdd1f91847eae19eaca392ea28ced605/src/battle_snake/point.cr#L10" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/486dbfa9a3e45d7620ae5fd188a64e2e72670c32/src/battle_snake/point.cr#L10" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -677,7 +706,7 @@ numbers will return valid results but aren't needed or practical.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/cb5b6e95cdd1f91847eae19eaca392ea28ced605/src/battle_snake/point.cr#L10" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/486dbfa9a3e45d7620ae5fd188a64e2e72670c32/src/battle_snake/point.cr#L10" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -693,7 +722,7 @@ numbers will return valid results but aren't needed or practical.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/cb5b6e95cdd1f91847eae19eaca392ea28ced605/src/battle_snake/point.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/486dbfa9a3e45d7620ae5fd188a64e2e72670c32/src/battle_snake/point.cr#L13" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -709,7 +738,7 @@ numbers will return valid results but aren't needed or practical.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/cb5b6e95cdd1f91847eae19eaca392ea28ced605/src/battle_snake/point.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/486dbfa9a3e45d7620ae5fd188a64e2e72670c32/src/battle_snake/point.cr#L13" target="_blank">View source</a>]
         
       </div>
     </div>
