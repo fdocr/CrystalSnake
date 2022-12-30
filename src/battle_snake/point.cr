@@ -75,6 +75,23 @@ class BattleSnake::Point
     end
   end
 
+  # Returns the point when it moves in a direction. Works the same way as #up,
+  # left, etc. but with a string parameter so it's easier to manipulate
+  def move(direction)
+    case direction
+    when "up"
+      up
+    when "left"
+      left
+    when "down"
+      down
+    when "right"
+      right
+    else
+      self
+    end
+  end
+
   # Returns a new Point directly up from the instance
   def up
     Point.new(x, y + 1)

@@ -1,3 +1,9 @@
+# Basic implementation of a Tree data structure. Implemented using a List to
+# accomodate N children per node.
+# 
+# NOTE: Children in the Array are not sorted. This means the only way to 
+# traverse/search the tree is brute force, but for the current use case this
+# isn't necessary.
 class LTree
   getter children
   getter value

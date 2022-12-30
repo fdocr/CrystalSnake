@@ -26,11 +26,15 @@ class BattleSnake::Board
   @snake_points = [] of Point
   getter snake_points : Array(Point)
 
-  def after_initialize
+  def find_snake_points
     snakes.each do |snake|
       snake.body.each do |point|
         @snake_points << point unless @snake_points.includes?(point)
       end
     end
+  end
+
+  def after_initialize
+    find_snake_points
   end
 end
