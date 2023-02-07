@@ -20,6 +20,12 @@ class BattleSnake::Context
   @[JSON::Field(key: "you")]
   property you : Snake
 
+  def dup
+    new_context = Context.from_json(to_json)
+    new_context.turn = turn + 1
+    new_context
+  end
+
   # Returns a hash with all the valid `:moves` and `:neighbors` available from
   # a given `BattleSnake::Point`.
   #

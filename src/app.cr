@@ -24,9 +24,19 @@ end
 
 post "/move" do |env|
   context = BattleSnake::Context.from_json(env.params.json.to_json)
-  # move = Strategy::RandomValid.new(context).move
-  move = Strategy::ChaseRandomFood.new(context).move
-  # move = Strategy::ChaseClosestFood.new(context).move
+
+  case ENV["STRATEGY"] ||= "RandomValid"
+  when "RandomValid"
+    move = Strategy::RandomValid.new(context).move
+  when "ChaseClosestFood"
+    move = Strategy::ChaseClosestFood.new(context).move
+  when "ChaseRandomFood"
+    move = Strategy::ChaseRandomFood.new(context).move
+  when "SafeEater"
+    move = Strategy::SafeEater.new(context).move
+  else
+    move = Strategy::RandomValid.new(context).move
+  end
 
   res = { "move": move, "shout": "Moving #{move}!" }
   res.to_json

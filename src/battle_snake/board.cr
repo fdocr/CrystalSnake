@@ -34,6 +34,10 @@ class BattleSnake::Board
     end
   end
 
+  def living?(id)
+    snakes.index { |snake| snake.id == id }
+  end
+
   def after_initialize
     find_snake_points
   end
