@@ -6,7 +6,7 @@ COPY ./shard.yml ./shard.lock /opt/
 RUN shards install -v
 # Build a binary
 COPY . /opt/
-RUN crystal build ./src/app.cr
+RUN crystal build --static --release ./src/app.cr
 # ===============
 # Result image with one layer
 FROM alpine:latest
