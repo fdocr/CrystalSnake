@@ -12,4 +12,4 @@ RUN crystal build --verbose --release --static ./src/app.cr
 FROM alpine:latest
 WORKDIR /
 COPY --from=builder /app/app .
-ENTRYPOINT ["./app"]
+ENTRYPOINT ["./app -p ${PORT}"]
