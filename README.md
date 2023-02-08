@@ -38,7 +38,7 @@ You can also use `Strategy::Utils` class methods like `Strategy::Utils.a_star` w
 
 ## Deployment
 
-TODO: Write deployment instructions here
+I'm currently using [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform). The [Dockerfile](/Dockerfile) is detected and deployed on their cheapest tier. It "should work" in lots of other platforms with this setup, but [open an issue](https://github.com/fdocr/CrystalSnake/issues/new) if you need help troubleshooting or to discuss other solutions.
 
 ## Contributing
 
