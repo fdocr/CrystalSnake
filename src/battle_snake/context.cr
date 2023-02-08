@@ -49,6 +49,9 @@ class BattleSnake::Context
   # NOTE: A common method to help manipulate the results is
   # `BattleSnake::Point#move?`. An example of this in practice is the
   # `Strategy::Utils.a_star` method implementation.
+  # 
+  # TODO: Take into account the last point of snakes that will move on next
+  # turn, which would be in fact valid moves (not counted at the moment).
   def valid_moves(point : Point)
     moves = [] of String
     neighbors = {} of String => Point

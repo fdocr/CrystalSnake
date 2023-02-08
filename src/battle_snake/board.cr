@@ -26,6 +26,9 @@ class BattleSnake::Board
   @snake_points = [] of Point
   getter snake_points : Array(Point)
 
+  # Executed on `after_initialize` callback and all it does is populate
+  # snake_points variable (`Array(Point)`) with all points that belong to a
+  # snake on the board
   def find_snake_points
     snakes.each do |snake|
       snake.body.each do |point|
