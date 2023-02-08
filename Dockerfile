@@ -12,4 +12,4 @@ RUN crystal build ./src/app.cr
 FROM alpine:latest
 WORKDIR /
 COPY --from=builder /opt/app .
-ENTRYPOINT ["echo \"$PWD\" && ./app -p 8080"]
+ENTRYPOINT ["./app", "-p", "8080"]
