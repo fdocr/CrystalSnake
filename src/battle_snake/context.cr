@@ -123,7 +123,7 @@ class BattleSnake::Context
 
         # Head on head collision
         if snake.head == opponent.head
-          case snake.body.count { true } <=> opponent.body.count { true }
+          case snake.body.size <=> opponent.body.size
           when .negative?
             # snake eliminated
             collisions << snake.id

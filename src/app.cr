@@ -12,8 +12,8 @@ get "/" do
     "apiversion": "1",
     "author": "fdocr",
     "color": ENV["SNAKE_COLOR"] ||= "#e3dada",
-    "head": ENV["SNAKE_COLOR"] ||= "default",
-    "tail": ENV["SNAKE_COLOR"] ||= "default",
+    "head": ENV["SNAKE_HEAD"] ||= "default",
+    "tail": ENV["SNAKE_TAIL"] ||= "default",
     "version": {{ `shards version "#{__DIR__}"`.chomp.stringify }}
   }.to_json
 end
