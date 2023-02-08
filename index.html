@@ -168,7 +168,10 @@
 shards install
 
 # Start development server in port 8080 with live reload
-make sam dev</code></pre>
+make sam dev
+
+# Use a custom strategy
+STRATEGY=&quot;SafeEater&quot; make sam dev</code></pre>
 <h2><a id="development" class="anchor" href="#development">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
@@ -197,6 +200,13 @@ make sam dev</code></pre>
   </svg>
 </a>Deployment</h2>
 <p>I'm currently using <a href="https://www.digitalocean.com/products/app-platform">DigitalOcean App Platform</a>. The <a href="/Dockerfile">Dockerfile</a> is detected and deployed on their cheapest tier. It &quot;should work&quot; in lots of other platforms with this setup, but <a href="https://github.com/fdocr/CrystalSnake/issues/new">open an issue</a> if you need help troubleshooting or to discuss other solutions.</p>
+<p><strong>Customizations</strong></p>
+<p>| ENV Variable  | Customization               |
+| ------------- | -------------               |
+| STRATEGY      | Strategy class name to use  |
+| SNAKE_COLOR   | Snake color (i.e. &quot;#cccccc&quot;)|
+| SNAKE_HEAD    | Snake head                  |
+| SNAKE_TAIL    | Snake Tail                  |</p>
 <h2><a id="contributing" class="anchor" href="#contributing">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
