@@ -5,12 +5,12 @@ class Strategy::ChaseClosestFood < Strategy::Base
     food_routes = {} of Int32 => NamedTuple(route: Array(BattleSnake::Point), moves: Array(String))
     @context.board.food.each do |point|
       res = Utils.a_star(@context.you.head, point, @context)
-      dist = res[:moves].count { true }
+      dist = res[:moves].size
       food_routes[dist] = res if dist > 0 
     end
 
     # Use RandomValid if there's no available food at play
-    valid_target_count = food_routes.keys.count { true }.zero?
+    valid_target_count = food_routes.keys.size.zero?
     return Strategy::RandomValid.new(@context).move if valid_target_count
 
     # Find the closest A* result and use their first move

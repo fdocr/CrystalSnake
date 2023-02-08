@@ -22,8 +22,8 @@ describe "BattleSnake::Context" do
     json = File.read("./spec/fixtures/collision_1.json")
     context = BattleSnake::Context.from_json(json)
 
-    context.board.snakes.count { true }.should eq(2)
+    context.board.snakes.size.should eq(2)
     context.check_collisions
-    context.board.snakes.count { true }.should eq(1)
+    context.board.snakes.size.should eq(1)
   end
 end

@@ -31,7 +31,7 @@ def Strategy::Utils.flood_fill(a : BattleSnake::Point, context : BattleSnake::Co
     break if queue.empty?
   end
 
-  # p "Flood fill res count: #{area.count { true }}"
+  # p "Flood fill res count: #{area.size}"
 
   area
 end

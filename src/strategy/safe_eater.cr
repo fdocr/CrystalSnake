@@ -3,7 +3,7 @@ class Strategy::SafeEater < Strategy::Base
   def move(steps = 1)
     # p "Starting SafeEater#move"
     enemies = @context.board.snakes.reject { |s| s.id == @context.you.id }
-    enemy_count = enemies.count { true }
+    enemy_count = enemies.size
 
     contexts = [] of BattleSnake::Context
     directions = ["up", "left", "down", "right"]
@@ -38,7 +38,7 @@ class Strategy::SafeEater < Strategy::Base
           # # Check available area
           area = Utils.flood_fill(result.you.head, result)
           p "AREA: #{area.inspect}"
-          available_area[area.count { true }] = move
+          available_area[area.size] = move
         end
       end
     else
@@ -48,7 +48,7 @@ class Strategy::SafeEater < Strategy::Base
         # p "Evaluating food: #{food.inspect}"
         # Find path to food element
         res = Utils.a_star(@context.you.head, food, @context)
-        # p "A* result length: #{res[:moves].count { true }}"
+        # p "A* result length: #{res[:moves].size}"
         contexts.each_with_index do |c, index|
           next if res[:moves].empty?
 
@@ -67,7 +67,7 @@ class Strategy::SafeEater < Strategy::Base
           # Calculate flood fill from result state to see how "trapped" are we
           area = Utils.flood_fill(@context.you.head.move(target_move), result)
           # p "AREA: #{area.inspect}"
-          available_area[area.count { true }] = target_move
+          available_area[area.size] = target_move
         end
       end
     end
@@ -76,7 +76,7 @@ class Strategy::SafeEater < Strategy::Base
 
     # I want to avoid being trapped so area must be larger than the snake itself
     sorted_areas = available_area.keys.sort
-    snake_length = @context.you.body.count { true }
+    snake_length = @context.you.body.size
     p "Sorted Areas (#{snake_length}): #{sorted_areas}"
 
     safe_areas = sorted_areas.select { |area| area > snake_length }
