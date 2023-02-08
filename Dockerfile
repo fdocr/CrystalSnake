@@ -11,5 +11,5 @@ RUN crystal build --verbose --release --static ./src/app.cr
 # Result image with one layer
 FROM alpine:latest
 WORKDIR /
-COPY --from=builder /app/bin/app .
+COPY --from=builder /app/app .
 ENTRYPOINT ["./app"]
