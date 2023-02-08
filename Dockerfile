@@ -6,10 +6,10 @@ COPY ./shard.yml ./shard.lock /opt/
 RUN shards install -v
 # Build a binary
 COPY . /opt/
-RUN crystal build --verbose --release --static ./src/app.cr
+RUN crystal build ./src/app.cr
 # ===============
 # Result image with one layer
 FROM alpine:latest
 WORKDIR /
 COPY --from=builder /opt/app .
-ENTRYPOINT ["ls -lha && ./app -p 8080"]
+ENTRYPOINT ["echo \"$PWD\" && ./app -p 8080"]
