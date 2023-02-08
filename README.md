@@ -12,6 +12,9 @@ shards install
 
 # Start development server in port 8080 with live reload
 make sam dev
+
+# Use a custom strategy
+STRATEGY="SafeEater" make sam dev
 ```
 
 ## Development
@@ -39,6 +42,15 @@ You can also use `Strategy::Utils` class methods like `Strategy::Utils.a_star` w
 ## Deployment
 
 I'm currently using [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform). The [Dockerfile](/Dockerfile) is detected and deployed on their cheapest tier. It "should work" in lots of other platforms with this setup, but [open an issue](https://github.com/fdocr/CrystalSnake/issues/new) if you need help troubleshooting or to discuss other solutions.
+
+**Customizations**
+
+| ENV Variable  | Customization               |
+| ------------- | -------------               |
+| STRATEGY      | Strategy class name to use  |
+| SNAKE_COLOR   | Snake color (i.e. "#cccccc")|
+| SNAKE_HEAD    | Snake head                  |
+| SNAKE_TAIL    | Snake Tail                  |
 
 ## Contributing
 

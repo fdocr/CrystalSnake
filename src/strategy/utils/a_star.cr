@@ -39,7 +39,7 @@ def Strategy::Utils.a_star(a : BattleSnake::Point, b : BattleSnake::Point, conte
       finished = true if node_distance[new_point.to_s].zero?
     end
 
-    break if !finished && queue.count { true }.zero?
+    break if !finished && queue.size.zero?
   end
 
   route = [] of BattleSnake::Point
