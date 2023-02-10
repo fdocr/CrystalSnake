@@ -45,7 +45,7 @@ class Strategy::CautiousCarol < Strategy::Base
       flood_fills[area_size] = move
     end
 
-    p "Going with #{flood_fills.keys.sort.last} from flood fills: #{flood_fills}"
+    # Pick the direction with the largest available area
     flood_fills[flood_fills.keys.sort.last]
   end
 end
