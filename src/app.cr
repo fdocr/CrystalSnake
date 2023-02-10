@@ -2,6 +2,7 @@ require "kemal"
 require "./l_tree"
 require "./battle_snake/**"
 require "./strategy/**"
+require "./open_telemetry"
 
 before_all do |env|
   env.response.content_type = "application/json"
