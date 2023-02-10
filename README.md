@@ -2,7 +2,7 @@
 
 This is a [Battle Snake](https://play.battlesnake.com/) project written in [Crystal](https://crystal-lang.org/) using [Kemal](https://kemalcr.com/)
 
-I strongly recommend reading the docs in [https://fdocr.github.io/CrystalSnake/](https://fdocr.github.io/CrystalSnake/). You can find detailed information about each class and method there :)
+I strongly recommend reading the docs in [https://fdocr.github.io/CrystalSnake/](https://fdocr.github.io/CrystalSnake/). You'll find detailed information on classes and methods there :)
 
 ## Installation
 
