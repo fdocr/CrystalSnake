@@ -12,6 +12,7 @@ class OpenTelemetryHandler < Kemal::Handler
       span["http.target"] = context.request.resource
       span["http.flavor"] = context.request.version
       span["http.host"] = context.request.headers["host"]?
+      span["service.name"] = ENV["HONEYCOMB_DATASET"]
       context.request.query_params.each do |key, value|
         span["request.query_params.#{key}"] = value
       end
@@ -35,10 +36,7 @@ if ENV["HONEYCOMB_API_KEY"]?.presence
         endpoint: URI.parse("https://api.honeycomb.io"),
         headers: HTTP::Headers{
           # Get your Honeycomb API key from https://ui.honeycomb.io/account
-          "x-honeycomb-team"    => ENV["HONEYCOMB_API_KEY"],
-          # Name this whatever you like. Honeycomb will create the dataset when it
-          # begins reporting data.
-          "x-honeycomb-dataset" => ENV["HONEYCOMB_DATASET"],
+          "x-honeycomb-team"    => ENV["HONEYCOMB_API_KEY"]
         },
       )
     )
