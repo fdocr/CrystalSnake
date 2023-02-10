@@ -13,6 +13,8 @@ dependencies:
     github: kemalcr/kemal
   priority-queue:
     github: spider-gazelle/priority-queue
+  opentelemetry:
+    github: jgaskins/opentelemetry
 
 development_dependencies:
   sam:
