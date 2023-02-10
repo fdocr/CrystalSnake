@@ -111,6 +111,11 @@
       
     </li>
   
+  <li class=" " data-id="CrystalSnake/Strategy/CautiousCarol" data-name="strategy::cautiouscarol">
+      <a href="Strategy/CautiousCarol.html">CautiousCarol</a>
+      
+    </li>
+  
   <li class=" " data-id="CrystalSnake/Strategy/ChaseClosestFood" data-name="strategy::chaseclosestfood">
       <a href="Strategy/ChaseClosestFood.html">ChaseClosestFood</a>
       
@@ -128,11 +133,6 @@
   
   <li class=" " data-id="CrystalSnake/Strategy/RandomValid" data-name="strategy::randomvalid">
       <a href="Strategy/RandomValid.html">RandomValid</a>
-      
-    </li>
-  
-  <li class=" " data-id="CrystalSnake/Strategy/SafeEater" data-name="strategy::safeeater">
-      <a href="Strategy/SafeEater.html">SafeEater</a>
       
     </li>
   
@@ -158,41 +158,42 @@
   </svg>
 </a>Crystal Snake</h1>
 <p>This is a <a href="https://play.battlesnake.com/">Battle Snake</a> project written in <a href="https://crystal-lang.org/">Crystal</a> using <a href="https://kemalcr.com/">Kemal</a></p>
+<p>I strongly recommend reading the docs in <a href="https://fdocr.github.io/CrystalSnake/">https://fdocr.github.io/CrystalSnake/</a>. You'll find detailed information on classes and methods there :)</p>
 <h2><a id="installation" class="anchor" href="#installation">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Installation</h2>
-<p>The app uses <a href="https://github.com/imdrasil/sam.cr">sam.cr</a> for ease of development.</p>
+<p>The app uses <a href="https://github.com/imdrasil/sam.cr">sam.cr</a> for ease of development</p>
 <pre><code class="language-bash"># Install dependencies
 shards install
 
 # Start development server in port 8080 with live reload
 make sam dev
 
+# Run tests
+make sam test
+
 # Use a custom strategy
-STRATEGY=&quot;SafeEater&quot; make sam dev</code></pre>
+STRATEGY=&quot;ChaseClosestFood&quot; make sam dev</code></pre>
 <h2><a id="development" class="anchor" href="#development">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Development</h2>
 <p>For local development I use the <a href="https://github.com/BattlesnakeOfficial/rules/tree/main/cli">BattleSnake CLI</a> with the local server running. A basic example looks like this:</p>
-<pre><code class="language-bash">battlesnake play -W 11 -H 11 --name dev --url http://localhost:8080 -g solo -v</code></pre>
-<h2><a id="usage" class="anchor" href="#usage">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>Usage</h2>
-<p>I strongly recommend reading the docs in <a href="https://fdocr.github.io/CrystalSnake/#usage">https://fdocr.github.io/CrystalSnake/</a> because you can find detailed information about each class and method hosted there :)</p>
+<pre><code class="language-bash"># Solo game
+battlesnake play -W 11 -H 11 --name dev --url http://localhost:8080 -g solo -v
+
+# 1v1 against itself (you should be able to use any public snake if you know their URL)
+battlesnake play -W 11 -H 11 --name dev --url http://localhost:8080  --name dev2 --url http://localhost:8080 -v</code></pre>
 <h4><a id="strategies-architecture" class="anchor" href="#strategies-architecture">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Strategies &amp; Architecture</h4>
 <p>The server is built on the <code>src/app.cr</code> file and you can choose to use any of the available strategies (<a href="https://github.com/fdocr/CrystalSnake/tree/main/src/strategy">list available here</a>).</p>
-<p>All strategies inherit from <code>Stategy::Base</code>, they are initialized with a <code><a href="BattleSnake/Context.html">BattleSnake::Context</a></code> and you call <code>#move</code> method to chose a move to respond with.</p>
-<p>With this interface you can create new strategies and even re-use them within each other. For example <code><a href="Strategy/ChaseClosestFood.html">Strategy::ChaseClosestFood</a></code> uses the <code><a href="Strategy/RandomValid.html">Strategy::RandomValid</a></code> strategy when reachable food doesn't exist on the board.</p>
+<p>To start hacking a new one create a new strategy (in that folder) that inherits from <code>Stategy::Base</code>. They're all initialized with a <code><a href="BattleSnake/Context.html">BattleSnake::Context</a></code> and you call <code>#move</code> method to chose a move to respond with (the method your logic will live). You can re-use strategies within each other, i.e. <code><a href="Strategy/ChaseClosestFood.html">Strategy::ChaseClosestFood</a></code> uses the <code><a href="Strategy/RandomValid.html">Strategy::RandomValid</a></code> strategy when reachable food doesn't exist on the board.</p>
 <p>You can also use <code><a href="Strategy/Utils.html">Strategy::Utils</a></code> class methods like <code>Strategy::Utils.a_star</code> which implements the <a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* Search Algorithm</a> (list of <a href="https://github.com/fdocr/CrystalSnake/tree/main/src/strategy/utils">Utils helper methods</a> available).</p>
 <h2><a id="deployment" class="anchor" href="#deployment">
   <svg class="octicon-link" aria-hidden="true">
