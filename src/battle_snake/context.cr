@@ -26,6 +26,10 @@ class BattleSnake::Context
     new_context
   end
 
+  def enemies
+    @enemies ||= board.snakes.reject { |s| s.id == @context.you.id }
+  end
+
   # Returns a hash with all the valid `:moves` and `:neighbors` available from
   # a given `BattleSnake::Point`.
   #

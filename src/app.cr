@@ -32,8 +32,8 @@ post "/move" do |env|
     move = Strategy::ChaseClosestFood.new(context).move
   when "ChaseRandomFood"
     move = Strategy::ChaseRandomFood.new(context).move
-  when "SafeEater"
-    move = Strategy::SafeEater.new(context).move
+  when "CautiousCarol"
+    move = Strategy::CautiousCarol.new(context).move
   else
     move = Strategy::RandomValid.new(context).move
   end
