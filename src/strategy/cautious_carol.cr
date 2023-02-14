@@ -1,14 +1,15 @@
-# Strategy that chases randomly selected food from the board
+# Strategy that chases the closest available food from the board with caution
+# against head-to-head collisions. When a potentially dangerous move is in the
+# way it analyzes the other valid moves available and picks the one with the 
+# most open area of the board to avoid enclosed spaces.
 class Strategy::CautiousCarol < Strategy::Base
   def move
-    enemies = @context.board.snakes.reject { |s| s.id == @context.you.id }
-    enemy_count = enemies.count { true }
-
     valid_moves = @context.valid_moves(@context.you.head)
     return RandomValid.new(@context).move if valid_moves[:moves].empty?
 
     # Check for head-to-head collision possibilities
     dangerous_moves = [] of BattleSnake::Point
+    enemies = @context.board.snakes.reject { |s| s.id == @context.you.id }
     enemies.each do |snake|
       next if snake.head <=> @context.you.head > 2
       next if snake.body.size < @context.you.body.size
