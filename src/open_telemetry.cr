@@ -12,7 +12,6 @@ class OpenTelemetryHandler < Kemal::Handler
       span["http.target"] = context.request.resource
       span["http.flavor"] = context.request.version
       span["http.host"] = context.request.headers["host"]?
-      span["service.name"] = ENV["HONEYCOMB_DATASET"]
       context.request.query_params.each do |key, value|
         span["request.query_params.#{key}"] = value
       end
@@ -40,6 +39,7 @@ if ENV["HONEYCOMB_API_KEY"]?.presence
         },
       )
     )
+    c.service_name = "crystal-snake"
   end
 
   add_handler OpenTelemetryHandler.new

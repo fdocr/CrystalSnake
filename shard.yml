@@ -14,7 +14,8 @@ dependencies:
   priority-queue:
     github: spider-gazelle/priority-queue
   opentelemetry:
-    github: jgaskins/opentelemetry
+    github: fdocr/opentelemetry
+    branch: resource-name-for-dataset-assignment
 
 development_dependencies:
   sam:
