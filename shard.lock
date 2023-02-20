@@ -26,7 +26,7 @@ shards:
 
   opentelemetry:
     git: https://github.com/fdocr/opentelemetry.git
-    version: 0.3.4+git.commit.344bc19bcbc50c8cbe8729ac65717017f3fbd4a4
+    version: 0.3.4+git.commit.f8a9f89d2ced194e9f0e93af3177c7184e4253be
 
   priority-queue:
     git: https://github.com/spider-gazelle/priority-queue.git
