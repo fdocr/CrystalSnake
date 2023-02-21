@@ -16,6 +16,12 @@ dependencies:
   opentelemetry:
     github: fdocr/opentelemetry
     commit: f8a9f89
+  jennifer:
+    github: imdrasil/jennifer.cr
+    commit: 926a1e3
+  pg:
+    github: will/crystal-pg
+    version: "= 0.26.0"
 
 development_dependencies:
   sam:
@@ -27,6 +33,9 @@ development_dependencies:
   spec-kemal:
     github: kemalcr/spec-kemal
     version: ~> 1.0.0
+  dotenv:
+    github: drum445/dotenv
+    version: ~> 0.4.0
 
 crystal: 1.6.1
 

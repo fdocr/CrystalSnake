@@ -1,4 +1,5 @@
 require "kemal"
+require "../config/config.cr"
 require "./l_tree"
 require "./battle_snake/**"
 require "./strategy/**"
@@ -21,6 +22,7 @@ end
 
 post "/start" do |env|
   context = BattleSnake::Context.from_json(env.params.json.to_json)
+  # BattleSnake::Record.create(game_id: context.game.id, context: env.params.json.to_json)
 end
 
 post "/move" do |env|
@@ -45,6 +47,10 @@ end
 
 post "/end" do |env|
   context = BattleSnake::Context.from_json(env.params.json.to_json)
+end
+
+get "/wat" do |env|
+  # "WAT: #{BattleSnake::Record.select("COUNT(id) AS count").pluck(:count)}"
 end
 
 Kemal.run
