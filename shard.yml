@@ -25,6 +25,8 @@ dependencies:
   dotenv:
     github: drum445/dotenv
     version: ~> 0.5.0
+  micrate:
+    github: juanedi/micrate
 
 development_dependencies:
   sam:
@@ -36,8 +38,6 @@ development_dependencies:
   spec-kemal:
     github: kemalcr/spec-kemal
     version: ~> 1.0.0
-  micrate:
-    github: juanedi/micrate
 
 crystal: 1.6.1
 

@@ -66,10 +66,4 @@ post "/end" do |env|
   persist_turn!
 end
 
-get "/wat" do |env|
-  p "ENV: #{env.request.path}"
-  Turn.where(path: "/end").order(:created_at).map { |t| t.dead }.to_json
-  # Turn.all("WHERE path = ?", ["/end"]).map { |t| t.game_id }.to_json
-end
-
 Kemal.run
