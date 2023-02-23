@@ -1,8 +1,4 @@
-require "kemal"
 require "../config"
-require "./l_tree"
-require "./battle_snake/**"
-require "./strategy/**"
 
 add_handler OpenTelemetryHandler.new if ENV["HONEYCOMB_API_KEY"]?.presence
 
@@ -23,7 +19,16 @@ end
 
 post "/start" do |env|
   context = BattleSnake::Context.from_json(env.params.json.to_json)
-  # BattleSnake::Record.create(game_id: context.game.id, context: env.params.json.to_json)
+  # Record.where { _confirmation_token == token && _email == email }.last!
+  # p "WAT (#{context.game.id.class}): #{env.params.json.to_json.class}"
+  # turn = Turn.create(game_id: "123")
+  # # p record.inspect
+  # if record.save
+  #   p "YES"
+  # else
+  #   p "NO"
+  # end
+  # p "RECORD COUNT: #{Record.all}"
 end
 
 post "/move" do |env|
@@ -51,7 +56,7 @@ post "/end" do |env|
 end
 
 get "/wat" do |env|
-  # "WAT: #{BattleSnake::Record.select("COUNT(id) AS count").pluck(:count)}"
+  # "WAT: #{Record.all}"
 end
 
 Kemal.run

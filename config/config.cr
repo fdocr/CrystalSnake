@@ -4,5 +4,11 @@ require "dotenv"
 Dotenv.load if Kemal.config.env == "development"
 
 require "./initializers/**"
-# Import record (model) so jennifer.cr has access to it
-require "../src/battle_snake/record.cr"
+
+require "../src/l_tree"
+require "../src/battle_snake/**"
+require "../src/strategy/**"
+
+# require "../src/models/application_record.cr"
+require "../src/models/*"
+
