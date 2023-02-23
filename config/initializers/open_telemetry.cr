@@ -41,6 +41,4 @@ if ENV["HONEYCOMB_API_KEY"]?.presence
     )
     c.service_name = "crystal-snake"
   end
-
-  add_handler OpenTelemetryHandler.new
 end

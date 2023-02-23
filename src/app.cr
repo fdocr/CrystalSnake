@@ -1,9 +1,10 @@
 require "kemal"
-require "../config/config.cr"
+require "../config"
 require "./l_tree"
 require "./battle_snake/**"
 require "./strategy/**"
-require "./open_telemetry"
+
+add_handler OpenTelemetryHandler.new if ENV["HONEYCOMB_API_KEY"]?.presence
 
 before_all do |env|
   env.response.content_type = "application/json"
