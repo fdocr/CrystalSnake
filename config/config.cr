@@ -1,7 +1,7 @@
 require "kemal"
 require "dotenv"
 
-Dotenv.load unless Kemal.config.env == "production"
+Dotenv.load if Kemal.config.env == "development"
 
 require "./initializers/**"
 # Import record (model) so jennifer.cr has access to it
