@@ -16,6 +16,15 @@ dependencies:
   opentelemetry:
     github: fdocr/opentelemetry
     commit: f8a9f89
+  granite:
+    github: amberframework/granite
+    commit: 51e41d4
+  pg:
+    github: will/crystal-pg
+    version: ~> 0.26.0
+  dotenv:
+    github: drum445/dotenv
+    version: ~> 0.5.0
 
 development_dependencies:
   sam:
@@ -27,6 +36,8 @@ development_dependencies:
   spec-kemal:
     github: kemalcr/spec-kemal
     version: ~> 1.0.0
+  micrate:
+    github: juanedi/micrate
 
 crystal: 1.6.1
 

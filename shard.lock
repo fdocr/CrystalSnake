@@ -12,21 +12,41 @@ shards:
     git: https://github.com/crystal-lang/crystal-db.git
     version: 0.11.0
 
+  dotenv:
+    git: https://github.com/drum445/dotenv.git
+    version: 0.5.0
+
   exception_page:
     git: https://github.com/crystal-loot/exception_page.git
     version: 0.3.0
+
+  granite:
+    git: https://github.com/amberframework/granite.git
+    version: 0.23.1+git.commit.51e41d491f3d863e67a1f2ad4c06edb8e1c37d7f
 
   kemal:
     git: https://github.com/kemalcr/kemal.git
     version: 1.3.0
 
+  micrate:
+    git: https://github.com/juanedi/micrate.git
+    version: 0.15.0
+
   mpsc:
     git: https://github.com/jgaskins/mpsc.git
     version: 0.1.0+git.commit.62869371a53eeaff95bc9abe282788947a9aaf5d
 
+  mysql:
+    git: https://github.com/crystal-lang/crystal-mysql.git
+    version: 0.14.0
+
   opentelemetry:
     git: https://github.com/fdocr/opentelemetry.git
     version: 0.3.4+git.commit.f8a9f89d2ced194e9f0e93af3177c7184e4253be
+
+  pg:
+    git: https://github.com/will/crystal-pg.git
+    version: 0.26.0
 
   priority-queue:
     git: https://github.com/spider-gazelle/priority-queue.git
@@ -51,4 +71,8 @@ shards:
   spec-kemal:
     git: https://github.com/kemalcr/spec-kemal.git
     version: 1.0.0
+
+  sqlite3:
+    git: https://github.com/crystal-lang/crystal-sqlite3.git
+    version: 0.19.0
 

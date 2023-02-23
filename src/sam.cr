@@ -17,4 +17,9 @@ task "test" do
   system "KEMAL_ENV=test crystal spec"
 end
 
+task "micrate" do
+  system "cp .micrate bin/micrate" unless File.exists?("bin/micrate")
+  system "chmod +x bin/micrate"
+end
+
 Sam.help

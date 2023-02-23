@@ -4,6 +4,22 @@ require "./battle_snake/**"
 require "./strategy/**"
 require "./open_telemetry"
 
+require "dotenv"
+Dotenv.load unless Kemal.config.env == "production"
+require "./database"
+require "./models/*"
+
+macro persist_turn!
+  dead = context.board.snakes.find { |s| s.id == context.you.id }.nil?
+  Turn.create(
+    game_id: context.game.id,
+    snake_id: context.you.id,
+    context: env.params.json.to_json,
+    path: env.request.path,
+    dead: dead
+  )
+end
+
 before_all do |env|
   env.response.content_type = "application/json"
 end
@@ -21,10 +37,12 @@ end
 
 post "/start" do |env|
   context = BattleSnake::Context.from_json(env.params.json.to_json)
+  persist_turn!
 end
 
 post "/move" do |env|
   context = BattleSnake::Context.from_json(env.params.json.to_json)
+  persist_turn!
 
   case ENV["STRATEGY"] ||= "RandomValid"
   when "RandomValid"
@@ -45,6 +63,13 @@ end
 
 post "/end" do |env|
   context = BattleSnake::Context.from_json(env.params.json.to_json)
+  persist_turn!
+end
+
+get "/wat" do |env|
+  p "ENV: #{env.request.path}"
+  Turn.where(path: "/end").order(:created_at).map { |t| t.dead }.to_json
+  # Turn.all("WHERE path = ?", ["/end"]).map { |t| t.game_id }.to_json
 end
 
 Kemal.run
