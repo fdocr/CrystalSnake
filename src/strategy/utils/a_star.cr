@@ -4,7 +4,7 @@ require "priority-queue"
 # ([read more](https://en.wikipedia.org/wiki/A*_search_algorithm)).
 #
 # It receives Point *a* (start) and *b* (objective), along with a
-# BattleSnake::Context to access the game state. It returns a hash with
+# `BattleSnake::Context` to access the game state. It returns a hash with
 # `:route` (`Array(BattleSnake::Point)`) and `:moves` (`Array(String)`). They
 # represent the points in the route and the moves ("up"/"left"/etc.) to take
 # that path from point *a* to *b*. Both arrays will be empty if the context
