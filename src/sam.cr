@@ -1,15 +1,12 @@
-p "1"
-require "../config/config.cr"
-p "2"
+require "dotenv"
+Dotenv.load
+
+require "./initializers/database"
 require "sam"
-p "3"
 require "sentry"
-p "4"
 require "../db/migrations/*"
-p "5"
 
 load_dependencies "jennifer"
-p "6"
 
 task "dev" do
   sentry = Sentry::ProcessRunner.new(

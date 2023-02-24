@@ -1,6 +1,23 @@
-require "../config"
+require "kemal"
+require "./l_tree"
+require "./battle_snake/**"
+require "./strategy/**"
 
-add_handler OpenTelemetryHandler.new if ENV["HONEYCOMB_API_KEY"]?.presence
+require "dotenv"
+Dotenv.load unless Kemal.config.env == "production"
+require "./initializers/**"
+require "./models/**"
+
+macro persist_turn!
+  dead = context.board.snakes.find { |s| s.id == context.you.id }.nil?
+  Turn.create(
+    game_id: context.game.id,
+    snake_id: context.you.id,
+    context: env.params.json.to_json,
+    path: env.request.path,
+    dead: dead
+  )
+end
 
 before_all do |env|
   env.response.content_type = "application/json"
@@ -19,20 +36,12 @@ end
 
 post "/start" do |env|
   context = BattleSnake::Context.from_json(env.params.json.to_json)
-  # Record.where { _confirmation_token == token && _email == email }.last!
-  # p "WAT (#{context.game.id.class}): #{env.params.json.to_json.class}"
-  # turn = Turn.create(game_id: "123")
-  # # p record.inspect
-  # if record.save
-  #   p "YES"
-  # else
-  #   p "NO"
-  # end
-  # p "RECORD COUNT: #{Record.all}"
+  persist_turn!
 end
 
 post "/move" do |env|
   context = BattleSnake::Context.from_json(env.params.json.to_json)
+  persist_turn!
 
   case ENV["STRATEGY"] ||= "RandomValid"
   when "RandomValid"
@@ -53,10 +62,11 @@ end
 
 post "/end" do |env|
   context = BattleSnake::Context.from_json(env.params.json.to_json)
+  persist_turn!
 end
 
 get "/wat" do |env|
-  # "WAT: #{Record.all}"
+  Turn.all.to_a.map { |r| r.game_id }.join(",")
 end
 
 Kemal.run

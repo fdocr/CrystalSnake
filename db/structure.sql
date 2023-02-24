@@ -32,25 +32,28 @@ CREATE TABLE public.migration_versions (
 ALTER TABLE public.migration_versions OWNER TO crystal;
 
 --
--- Name: records; Type: TABLE; Schema: public; Owner: crystal
+-- Name: turns; Type: TABLE; Schema: public; Owner: crystal
 --
 
-CREATE TABLE public.records (
+CREATE TABLE public.turns (
     id bigint NOT NULL,
     game_id character varying(254) NOT NULL,
-    context jsonb NOT NULL,
+    snake_id character varying(254) NOT NULL,
+    context text NOT NULL,
+    path character varying(254) NOT NULL,
+    dead boolean DEFAULT false NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
 
 
-ALTER TABLE public.records OWNER TO crystal;
+ALTER TABLE public.turns OWNER TO crystal;
 
 --
--- Name: records_id_seq; Type: SEQUENCE; Schema: public; Owner: crystal
+-- Name: turns_id_seq; Type: SEQUENCE; Schema: public; Owner: crystal
 --
 
-CREATE SEQUENCE public.records_id_seq
+CREATE SEQUENCE public.turns_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -58,35 +61,42 @@ CREATE SEQUENCE public.records_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.records_id_seq OWNER TO crystal;
+ALTER TABLE public.turns_id_seq OWNER TO crystal;
 
 --
--- Name: records_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: crystal
+-- Name: turns_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: crystal
 --
 
-ALTER SEQUENCE public.records_id_seq OWNED BY public.records.id;
-
-
---
--- Name: records id; Type: DEFAULT; Schema: public; Owner: crystal
---
-
-ALTER TABLE ONLY public.records ALTER COLUMN id SET DEFAULT nextval('public.records_id_seq'::regclass);
+ALTER SEQUENCE public.turns_id_seq OWNED BY public.turns.id;
 
 
 --
--- Name: records records_pkey; Type: CONSTRAINT; Schema: public; Owner: crystal
+-- Name: turns id; Type: DEFAULT; Schema: public; Owner: crystal
 --
 
-ALTER TABLE ONLY public.records
-    ADD CONSTRAINT records_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY public.turns ALTER COLUMN id SET DEFAULT nextval('public.turns_id_seq'::regclass);
 
 
 --
--- Name: records_game_id_idx; Type: INDEX; Schema: public; Owner: crystal
+-- Name: turns turns_pkey; Type: CONSTRAINT; Schema: public; Owner: crystal
 --
 
-CREATE INDEX records_game_id_idx ON public.records USING btree (game_id);
+ALTER TABLE ONLY public.turns
+    ADD CONSTRAINT turns_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: turns_game_id_idx; Type: INDEX; Schema: public; Owner: crystal
+--
+
+CREATE INDEX turns_game_id_idx ON public.turns USING btree (game_id);
+
+
+--
+-- Name: turns_path_idx; Type: INDEX; Schema: public; Owner: crystal
+--
+
+CREATE INDEX turns_path_idx ON public.turns USING btree (path);
 
 
 --
