@@ -40,24 +40,35 @@ post "/start" do |env|
 end
 
 post "/move" do |env|
-  context = BattleSnake::Context.from_json(env.params.json.to_json)
-  persist_turn!
+  OpenTelemetry.trace "move-trace" do |span|
+    span["debug-attr"] = "move-trace"
+    context = BattleSnake::Context.from_json(env.params.json.to_json)
+  
+    OpenTelemetry.trace "context persist" do |span|
+      span["debug-attr"] = "persist"
+      persist_turn!
+    end
 
-  case ENV["STRATEGY"] ||= "RandomValid"
-  when "RandomValid"
-    move = Strategy::RandomValid.new(context).move
-  when "ChaseClosestFood"
-    move = Strategy::ChaseClosestFood.new(context).move
-  when "ChaseRandomFood"
-    move = Strategy::ChaseRandomFood.new(context).move
-  when "CautiousCarol"
-    move = Strategy::CautiousCarol.new(context).move
-  else
-    move = Strategy::RandomValid.new(context).move
+    OpenTelemetry.trace "context persist" do |span|
+      span["debug-attr"] = "move-logic"
+
+      case ENV["STRATEGY"] ||= "RandomValid"
+      when "RandomValid"
+        move = Strategy::RandomValid.new(context).move
+      when "ChaseClosestFood"
+        move = Strategy::ChaseClosestFood.new(context).move
+      when "ChaseRandomFood"
+        move = Strategy::ChaseRandomFood.new(context).move
+      when "CautiousCarol"
+        move = Strategy::CautiousCarol.new(context).move
+      else
+        move = Strategy::RandomValid.new(context).move
+      end
+    
+      res = { "move": move, "shout": "Moving #{move}!" }
+      res.to_json
+    end
   end
-
-  res = { "move": move, "shout": "Moving #{move}!" }
-  res.to_json
 end
 
 post "/end" do |env|
