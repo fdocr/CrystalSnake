@@ -13,6 +13,7 @@ jobs:
         image: postgres
         env:
           POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: pg
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -36,7 +37,12 @@ jobs:
       - name: Install shards
         run: shards update
 
+      - name: Setup DB
+        run: make sam db:setup
+        env:
+          DATABASE_URI: postgresql://pg:postgres@localhost:5432/battlesnake_test
+
       - name: Run tests
         run: make sam test
         env:
-          DATABASE_URI: postgresql://root:postgres@localhost:5432/battlesnake_test
+          DATABASE_URI: postgresql://pg:postgres@localhost:5432/battlesnake_test
