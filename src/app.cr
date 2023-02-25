@@ -4,7 +4,7 @@ require "./battle_snake/**"
 require "./strategy/**"
 
 require "dotenv"
-Dotenv.load unless Kemal.config.env == "production"
+Dotenv.load if File.exists?(".env")
 require "./initializers/**"
 require "./models/**"
 
