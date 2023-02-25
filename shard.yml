@@ -18,10 +18,7 @@ dependencies:
     commit: f8a9f89
   jennifer:
     github: imdrasil/jennifer.cr
-    commit: ec6ccd5362da75e2d74f701de414f3da5c9d2834
-    # branch: master
-    # commit: 926a1e3
-    # version: "~> 0.12.0"
+    commit: 926a1e3
   pg:
     github: will/crystal-pg
     version: ~> 0.26.0
