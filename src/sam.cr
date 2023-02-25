@@ -11,7 +11,7 @@ load_dependencies "jennifer"
 task "dev" do
   sentry = Sentry::ProcessRunner.new(
     display_name: "App",
-    build_command: "crystal build ./src/app.cr --error-trace",
+    build_command: "crystal build ./src/app.cr",
     run_command: "./app",
     run_args: ["-p", "8080"],
     files: [ "./src/**/*" ]
