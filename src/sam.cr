@@ -21,7 +21,8 @@ task "dev" do
 end
 
 task "test" do
-  system "KEMAL_ENV=test crystal spec"
+  res = system "KEMAL_ENV=test crystal spec"
+  raise "Tests failed!" unless res
 end
 
 Sam.help

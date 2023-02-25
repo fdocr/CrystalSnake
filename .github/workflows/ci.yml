@@ -39,4 +39,4 @@ jobs:
       - name: Run tests
         run: make sam test
         env:
-          DATABASE_URI: postgresql://postgres:postgres@localhost:5432/battlesnake_test
+          DATABASE_URI: postgresql://root:postgres@localhost:5432/battlesnake_test
