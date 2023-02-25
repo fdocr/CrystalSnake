@@ -2,10 +2,11 @@ require "kemal"
 require "./l_tree"
 require "./battle_snake/**"
 require "./strategy/**"
-require "./open_telemetry"
 
 require "dotenv"
 Dotenv.load unless Kemal.config.env == "production"
+
+require "./open_telemetry"
 require "./database"
 require "./models/*"
 
