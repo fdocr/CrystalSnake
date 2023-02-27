@@ -7,13 +7,16 @@ require "dotenv"
 Dotenv.load if File.exists?(".env")
 require "./initializers/**"
 require "./models/**"
-require "./jobs/**"
 
 macro persist_turn!
-  PersistTurnJob.new(
+  dead = context.board.snakes.find { |s| s.id == context.you.id }.nil?
+  Turn.create(
+    game_id: context.game.id,
+    snake_id: context.you.id,
+    context: env.params.json.to_json,
     path: env.request.path,
-    context_json: env.params.json.to_json
-  ).enqueue
+    dead: dead
+  )
 end
 
 def truncate_uuid(str)
