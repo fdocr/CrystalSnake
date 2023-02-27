@@ -5,7 +5,7 @@
     <div class="flex flex-wrap justify-around">
       <% end_turns.each do |turn| %>
         <div class="border rounded flex flex-col w-2/5 p-6 m-4 space-y-2">
-          <a href="https://play.battlesnake.com/game/<%= turn.game_id %>" class="hover:underline">
+          <a href="https://play.battlesnake.com/game/<%= turn.game_id %>" target="_blank" class="hover:underline">
             <div class="flex">
               <span>Time</span>
               <span class="flex-1 text-right"><%= turn.created_at.try(&.to_s("%c")) || "N/A" %></span>
