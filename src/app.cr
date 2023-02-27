@@ -19,8 +19,12 @@ macro persist_turn!
   )
 end
 
+def truncate_uuid(str)
+  "#{str[0..7]}...#{str[24..32]}"
+end
+
 before_all do |env|
-  env.response.content_type = "application/json"
+  env.response.content_type = "application/json" unless env.request.path =~ /\/games?/
 end
 
 get "/" do
@@ -65,8 +69,11 @@ post "/end" do |env|
   persist_turn!
 end
 
-get "/wat" do |env|
-  Turn.all.to_a.map { |r| r.game_id }.join(",")
+get "/games" do |env|
+  offset = (env.params.query["page"]? || 0).to_i * 50
+  count = Turn.where { _path == "/end" }.count
+  end_turns = Turn.where { _path == "/end" }.limit(50).offset(offset)
+  render "src/views/games.ecr", "src/views/layout.ecr"
 end
 
 Kemal.run
