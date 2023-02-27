@@ -2,10 +2,29 @@ require "kemal"
 require "./l_tree"
 require "./battle_snake/**"
 require "./strategy/**"
-require "./open_telemetry"
+
+require "dotenv"
+Dotenv.load if File.exists?(".env")
+require "./initializers/**"
+require "./models/**"
+
+macro persist_turn!
+  dead = context.board.snakes.find { |s| s.id == context.you.id }.nil?
+  Turn.create(
+    game_id: context.game.id,
+    snake_id: context.you.id,
+    context: env.params.json.to_json,
+    path: env.request.path,
+    dead: dead
+  )
+end
+
+def truncate_uuid(str)
+  "#{str[0..7]}...#{str[24..32]}"
+end
 
 before_all do |env|
-  env.response.content_type = "application/json"
+  env.response.content_type = "application/json" unless env.request.path =~ /\/games?/
 end
 
 get "/" do
@@ -21,10 +40,12 @@ end
 
 post "/start" do |env|
   context = BattleSnake::Context.from_json(env.params.json.to_json)
+  persist_turn!
 end
 
 post "/move" do |env|
   context = BattleSnake::Context.from_json(env.params.json.to_json)
+  persist_turn!
 
   case ENV["STRATEGY"] ||= "RandomValid"
   when "RandomValid"
@@ -45,6 +66,14 @@ end
 
 post "/end" do |env|
   context = BattleSnake::Context.from_json(env.params.json.to_json)
+  persist_turn!
+end
+
+get "/games" do |env|
+  offset = (env.params.query["page"]? || 0).to_i * 50
+  count = Turn.where { _path == "/end" }.count
+  end_turns = Turn.where { _path == "/end" }.limit(50).offset(offset)
+  render "src/views/games.ecr", "src/views/layout.ecr"
 end
 
 Kemal.run

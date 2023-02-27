@@ -7,6 +7,23 @@ on:
 jobs:
   Tests:
     runs-on: ubuntu-latest
+    env:
+      DATABASE_URI: postgres://postgres:postgres@localhost:5432/cmm-test
+      KEMAL_ENV: test
+
+    services:
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
     steps:
       - name: Download source
         uses: actions/checkout@v3
@@ -23,6 +40,9 @@ jobs:
 
       - name: Install shards
         run: shards update
+
+      - name: Setup DB
+        run: make sam db:setup
 
       - name: Run tests
         run: make sam test

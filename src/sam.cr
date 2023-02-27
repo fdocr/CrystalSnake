@@ -1,5 +1,12 @@
+require "dotenv"
+Dotenv.load
+
+require "./initializers/database"
 require "sam"
 require "sentry"
+require "../db/migrations/*"
+
+load_dependencies "jennifer"
 
 task "dev" do
   sentry = Sentry::ProcessRunner.new(
@@ -14,7 +21,8 @@ task "dev" do
 end
 
 task "test" do
-  system "KEMAL_ENV=test crystal spec"
+  res = system "KEMAL_ENV=test crystal spec"
+  raise "Tests failed!" unless res
 end
 
 Sam.help

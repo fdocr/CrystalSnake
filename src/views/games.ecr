@@ -1,0 +1,30 @@
+<div class="mx-20 px-20 mx-auto flex">
+  <div class="w-full my-10 p-6 bg-white">
+    <h1 class="text-2xl text-center mb-4">Recent games</h1>
+
+    <div class="flex flex-wrap justify-around">
+      <% end_turns.each do |turn| %>
+        <div class="border rounded flex flex-col w-2/5 p-6 m-4 space-y-2">
+          <a href="https://play.battlesnake.com/game/<%= turn.game_id %>" class="hover:underline">
+            <div class="flex">
+              <span>Time</span>
+              <span class="flex-1 text-right"><%= turn.created_at.try(&.to_s("%c")) || "N/A" %></span>
+            </div>
+            <div class="flex">
+              <span>Result</span>
+              <span class="flex-1 text-right"><%= turn.dead ? "Lost" : "Won" %></span>
+            </div>
+            <div class="flex">
+              <span>Snake</span>
+              <span class="flex-1 text-right"><%= truncate_uuid(turn.snake_id.to_s) %></span>
+            </div>
+            <div class="flex">
+              <span>Game</span>
+              <span class="flex-1 text-right"><%= truncate_uuid(turn.game_id.to_s) %></span>
+            </div>
+          </a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
