@@ -13,7 +13,7 @@
 <script type="text/javascript" src="js/doc.js"></script>
 
   <meta name="repository-name" content="CrystalSnake">
-  <title>LTree - CrystalSnake main</title>
+  <title>Top Level Namespace - CrystalSnake main</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "";
   </script>
@@ -51,7 +51,7 @@
   <div class="types-list">
     <ul>
   
-  <li class=" " data-id="CrystalSnake/toplevel" data-name="top level namespace">
+  <li class=" current" data-id="CrystalSnake/toplevel" data-name="top level namespace">
       <a href="toplevel.html">Top Level Namespace</a>
       
     </li>
@@ -106,7 +106,7 @@
       
     </li>
   
-  <li class=" current" data-id="CrystalSnake/LTree" data-name="ltree">
+  <li class=" " data-id="CrystalSnake/LTree" data-name="ltree">
       <a href="LTree.html">LTree</a>
       
     </li>
@@ -185,36 +185,47 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> LTree
+  Top Level Namespace
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="LTree.html">LTree</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
 
 
 
 
   <h2>
-    <a id="overview" class="anchor" href="#overview">
+    <a id="included-modules" class="anchor" href="#included-modules">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Overview
+    Included Modules
   </h2>
-
-  <p>Basic implementation of a Tree data structure. Implemented using a List to
-accomodate N children per node.</p>
-<p><span class="flag purple">NOTE</span>  Children in the Array are not sorted. This means the only way to
-traverse/search the tree is brute force, but for the current use case this
-isn't necessary.</p>
-
+  <ul class="other-types-list">
+    
+      <li class="other-type">Sam::DSL</li>
+    
+  </ul>
 
 
 
-
-
+  <h2>
+    <a id="extended-modules" class="anchor" href="#extended-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Extended Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type">Sam::DSL</li>
+    
+  </ul>
 
 
 
@@ -232,30 +243,25 @@ isn't necessary.</p>
     Defined in:
   </h2>
   
-    
-      <a href="https://github.com/fdocr/CrystalSnake/blob/35ad64192026b4d948e097b1d2110185f70ad2a9/src/l_tree.cr#L7" target="_blank">
-        l_tree.cr
-      </a>
-    
-    <br/>
-  
+
+
 
 
 
 
 
   <h2>
-    <a id="constructors" class="anchor" href="#constructors">
+    <a id="method-summary" class="anchor" href="#method-summary">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Constructors
+    Method Summary
   </h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28value%3AString%2Cparent%3ALTree%7CNil%3Dnil%29-class-method" class="signature"><strong>.new</strong>(value : String, parent : LTree | Nil = <span class="n">nil</span>)</a>
+        <a href="#truncate_uuid%28str%29-class-method" class="signature"><strong>truncate_uuid</strong>(str)</a>
         
       </li>
     
@@ -266,48 +272,21 @@ isn't necessary.</p>
 
 
   <h2>
-    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+    <a id="macro-summary" class="anchor" href="#macro-summary">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Instance Method Summary
+    Macro Summary
   </h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#add%28text%29-instance-method" class="signature"><strong>#add</strong>(text)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#children%3AArray%28LTree%29-instance-method" class="signature"><strong>#children</strong> : Array(LTree)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#leaves-instance-method" class="signature"><strong>#leaves</strong></a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#parent%3ALTree%3F-instance-method" class="signature"><strong>#parent</strong> : LTree?</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#root-instance-method" class="signature"><strong>#root</strong></a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#value%3AString-instance-method" class="signature"><strong>#value</strong> : String</a>
+        <a href="#persist_turn%21-macro" class="signature"><strong>persist_turn!</strong></a>
         
       </li>
     
   </ul>
-
-
 
 
 
@@ -323,40 +302,32 @@ isn't necessary.</p>
 
 
   
-    
-
-
-    
-
-
-    
-
-
-  
 </div>
 
 
+
+
   <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+    <a id="method-detail" class="anchor" href="#method-detail">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Constructor Detail
+    Method Detail
   </h2>
   
-    <div class="entry-detail" id="new(value:String,parent:LTree|Nil=nil)-class-method">
+    <div class="entry-detail" id="truncate_uuid(str)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(value : String, parent : <a href="LTree.html">LTree</a> | Nil = <span class="n">nil</span>)
+        def <strong>truncate_uuid</strong>(str)
 
-        <a class="method-permalink" href="#new%28value%3AString%2Cparent%3ALTree%7CNil%3Dnil%29-class-method">#</a>
+        <a class="method-permalink" href="#truncate_uuid%28str%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/35ad64192026b4d948e097b1d2110185f70ad2a9/src/l_tree.cr#L12" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/35ad64192026b4d948e097b1d2110185f70ad2a9/src/app.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -367,112 +338,30 @@ isn't necessary.</p>
 
 
   <h2>
-    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+    <a id="macro-detail" class="anchor" href="#macro-detail">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Instance Method Detail
+    Macro Detail
   </h2>
   
-    <div class="entry-detail" id="add(text)-instance-method">
+    <div class="entry-detail" id="persist_turn!-macro">
       <div class="signature">
         
-        def <strong>add</strong>(text)
+        macro <strong>persist_turn!</strong>
 
-        <a class="method-permalink" href="#add%28text%29-instance-method">#</a>
+        <a class="method-permalink" href="#persist_turn%21-macro">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/35ad64192026b4d948e097b1d2110185f70ad2a9/src/l_tree.cr#L16" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/35ad64192026b4d948e097b1d2110185f70ad2a9/src/app.cr#L11" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="children:Array(LTree)-instance-method">
-      <div class="signature">
-        
-        def <strong>children</strong> : Array(<a href="LTree.html">LTree</a>)
-
-        <a class="method-permalink" href="#children%3AArray%28LTree%29-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/35ad64192026b4d948e097b1d2110185f70ad2a9/src/l_tree.cr#L8" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="leaves-instance-method">
-      <div class="signature">
-        
-        def <strong>leaves</strong>
-
-        <a class="method-permalink" href="#leaves-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/35ad64192026b4d948e097b1d2110185f70ad2a9/src/l_tree.cr#L20" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="parent:LTree?-instance-method">
-      <div class="signature">
-        
-        def <strong>parent</strong> : <a href="LTree.html">LTree</a>?
-
-        <a class="method-permalink" href="#parent%3ALTree%3F-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/35ad64192026b4d948e097b1d2110185f70ad2a9/src/l_tree.cr#L10" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="root-instance-method">
-      <div class="signature">
-        
-        def <strong>root</strong>
-
-        <a class="method-permalink" href="#root-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/35ad64192026b4d948e097b1d2110185f70ad2a9/src/l_tree.cr#L26" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="value:String-instance-method">
-      <div class="signature">
-        
-        def <strong>value</strong> : String
-
-        <a class="method-permalink" href="#value%3AString-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/35ad64192026b4d948e097b1d2110185f70ad2a9/src/l_tree.cr#L9" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-
-
 
 
 </div>

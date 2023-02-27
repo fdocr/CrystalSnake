@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 1.6.2">
+<meta name="crystal_docs.project_version" content="main">
+<meta name="crystal_docs.project_name" content="CrystalSnake">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="CrystalSnake">
+  <title>Turn - CrystalSnake main</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          CrystalSnake
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="CrystalSnake/toplevel" data-name="top level namespace">
+      <a href="toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
+  <li class=" " data-id="CrystalSnake/ApplicationRecord" data-name="applicationrecord">
+      <a href="ApplicationRecord.html">ApplicationRecord</a>
+      
+    </li>
+  
+  <li class="parent " data-id="CrystalSnake/BattleSnake" data-name="battlesnake">
+      <a href="BattleSnake.html">BattleSnake</a>
+      
+        <ul>
+  
+  <li class=" " data-id="CrystalSnake/BattleSnake/Board" data-name="battlesnake::board">
+      <a href="BattleSnake/Board.html">Board</a>
+      
+    </li>
+  
+  <li class=" " data-id="CrystalSnake/BattleSnake/Context" data-name="battlesnake::context">
+      <a href="BattleSnake/Context.html">Context</a>
+      
+    </li>
+  
+  <li class=" " data-id="CrystalSnake/BattleSnake/Game" data-name="battlesnake::game">
+      <a href="BattleSnake/Game.html">Game</a>
+      
+    </li>
+  
+  <li class=" " data-id="CrystalSnake/BattleSnake/Point" data-name="battlesnake::point">
+      <a href="BattleSnake/Point.html">Point</a>
+      
+    </li>
+  
+  <li class=" " data-id="CrystalSnake/BattleSnake/Ruleset" data-name="battlesnake::ruleset">
+      <a href="BattleSnake/Ruleset.html">Ruleset</a>
+      
+    </li>
+  
+  <li class=" " data-id="CrystalSnake/BattleSnake/Settings" data-name="battlesnake::settings">
+      <a href="BattleSnake/Settings.html">Settings</a>
+      
+    </li>
+  
+  <li class=" " data-id="CrystalSnake/BattleSnake/Snake" data-name="battlesnake::snake">
+      <a href="BattleSnake/Snake.html">Snake</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="CrystalSnake/LTree" data-name="ltree">
+      <a href="LTree.html">LTree</a>
+      
+    </li>
+  
+  <li class=" " data-id="CrystalSnake/OpenTelemetryHandler" data-name="opentelemetryhandler">
+      <a href="OpenTelemetryHandler.html">OpenTelemetryHandler</a>
+      
+    </li>
+  
+  <li class="parent " data-id="CrystalSnake/Strategy" data-name="strategy">
+      <a href="Strategy.html">Strategy</a>
+      
+        <ul>
+  
+  <li class=" " data-id="CrystalSnake/Strategy/Base" data-name="strategy::base">
+      <a href="Strategy/Base.html">Base</a>
+      
+    </li>
+  
+  <li class=" " data-id="CrystalSnake/Strategy/CautiousCarol" data-name="strategy::cautiouscarol">
+      <a href="Strategy/CautiousCarol.html">CautiousCarol</a>
+      
+    </li>
+  
+  <li class=" " data-id="CrystalSnake/Strategy/ChaseClosestFood" data-name="strategy::chaseclosestfood">
+      <a href="Strategy/ChaseClosestFood.html">ChaseClosestFood</a>
+      
+    </li>
+  
+  <li class=" " data-id="CrystalSnake/Strategy/ChaseRandomFood" data-name="strategy::chaserandomfood">
+      <a href="Strategy/ChaseRandomFood.html">ChaseRandomFood</a>
+      
+    </li>
+  
+  <li class=" " data-id="CrystalSnake/Strategy/Random" data-name="strategy::random">
+      <a href="Strategy/Random.html">Random</a>
+      
+    </li>
+  
+  <li class=" " data-id="CrystalSnake/Strategy/RandomValid" data-name="strategy::randomvalid">
+      <a href="Strategy/RandomValid.html">RandomValid</a>
+      
+    </li>
+  
+  <li class=" " data-id="CrystalSnake/Strategy/Utils" data-name="strategy::utils">
+      <a href="Strategy/Utils.html">Utils</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent open current" data-id="CrystalSnake/Turn" data-name="turn">
+      <a href="Turn.html">Turn</a>
+      
+        <ul>
+  
+  <li class=" " data-id="CrystalSnake/Turn/AttrType" data-name="turn::attrtype">
+      <a href="Turn/AttrType.html">AttrType</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Turn
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Turn.html">Turn</a></li><li class="superclass"><a href="ApplicationRecord.html">ApplicationRecord</a></li><li class="superclass">Jennifer::Model::Base</li><li class="superclass">Jennifer::Model::Resource</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>This is a DB record representation of a request from a game for either
+start/move/end request.</p>
+<p><span class="flag purple">NOTE</span>  https://imdrasil.github.io/jennifer.cr/docs/model_mapping</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/fdocr/CrystalSnake/blob/35ad64192026b4d948e097b1d2110185f70ad2a9/src/models/turn.cr#L5" target="_blank">
+        models/turn.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28values%3AHash%28Symbol%2CAttrType%29%7CNamedTuple%2Cnew_record%29-class-method" class="signature"><strong>.new</strong>(values : Hash(Symbol, AttrType) | NamedTuple, new_record)</a>
+        
+          <div class="summary"><p>Accepts symbol hash or named tuple, stringify it and calls constructor with string-based keys hash.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#_context-class-method" class="signature"><strong>._context</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#_created_at-class-method" class="signature"><strong>._created_at</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#_dead-class-method" class="signature"><strong>._dead</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#_game_id-class-method" class="signature"><strong>._game_id</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#_id-class-method" class="signature"><strong>._id</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#_path-class-method" class="signature"><strong>._path</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#_snake_id-class-method" class="signature"><strong>._snake_id</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#_updated_at-class-method" class="signature"><strong>._updated_at</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#column_names%3AArray%28String%29-class-method" class="signature"><strong>.column_names</strong> : Array(String)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#context%3AString-instance-method" class="signature"><strong>#context</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#context%21-instance-method" class="signature"><strong>#context!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#context%3D%28_context%3AString%29-instance-method" class="signature"><strong>#context=</strong>(_context : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#context%3D%28_context%3AAttrType%29-instance-method" class="signature"><strong>#context=</strong>(_context : AttrType)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#context_changed%3F%3ABool-instance-method" class="signature"><strong>#context_changed?</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#context_will_change%21-instance-method" class="signature"><strong>#context_will_change!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#created_at%3ATime%3F-instance-method" class="signature"><strong>#created_at</strong> : Time?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#created_at%21-instance-method" class="signature"><strong>#created_at!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#created_at%3D%28_created_at%3AUnion%28Time%2CNil%29%29-instance-method" class="signature"><strong>#created_at=</strong>(_created_at : Union(Time, Nil))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#created_at%3D%28_created_at%3AString%29-instance-method" class="signature"><strong>#created_at=</strong>(_created_at : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#created_at%3D%28_created_at%3AAttrType%29-instance-method" class="signature"><strong>#created_at=</strong>(_created_at : AttrType)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#created_at_changed%3F%3ABool-instance-method" class="signature"><strong>#created_at_changed?</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#created_at_will_change%21-instance-method" class="signature"><strong>#created_at_will_change!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dead%3ABool-instance-method" class="signature"><strong>#dead</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dead%21-instance-method" class="signature"><strong>#dead!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dead%3D%28_dead%3ABool%29-instance-method" class="signature"><strong>#dead=</strong>(_dead : Bool)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dead%3D%28_dead%3AString%29-instance-method" class="signature"><strong>#dead=</strong>(_dead : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dead%3D%28_dead%3AAttrType%29-instance-method" class="signature"><strong>#dead=</strong>(_dead : AttrType)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dead%3F-instance-method" class="signature"><strong>#dead?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dead_changed%3F%3ABool-instance-method" class="signature"><strong>#dead_changed?</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dead_will_change%21-instance-method" class="signature"><strong>#dead_will_change!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#destroy%3ABool-instance-method" class="signature"><strong>#destroy</strong> : Bool</a>
+        
+          <div class="summary"><p>Deletes object from db and calls all related callbacks.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#game_id%3AString-instance-method" class="signature"><strong>#game_id</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#game_id%21-instance-method" class="signature"><strong>#game_id!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#game_id%3D%28_game_id%3AString%29-instance-method" class="signature"><strong>#game_id=</strong>(_game_id : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#game_id%3D%28_game_id%3AAttrType%29-instance-method" class="signature"><strong>#game_id=</strong>(_game_id : AttrType)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#game_id_changed%3F%3ABool-instance-method" class="signature"><strong>#game_id_changed?</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#game_id_will_change%21-instance-method" class="signature"><strong>#game_id_will_change!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id%3AInt64%3F-instance-method" class="signature"><strong>#id</strong> : Int64?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id%21-instance-method" class="signature"><strong>#id!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id%3D%28_id%3AUnion%28Int64%2CNil%29%29-instance-method" class="signature"><strong>#id=</strong>(_id : Union(Int64, Nil))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id%3D%28_id%3AString%29-instance-method" class="signature"><strong>#id=</strong>(_id : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id%3D%28_id%3AInt32%29-instance-method" class="signature"><strong>#id=</strong>(_id : Int32)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id%3D%28_id%3AAttrType%29-instance-method" class="signature"><strong>#id=</strong>(_id : AttrType)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id_changed%3F%3ABool-instance-method" class="signature"><strong>#id_changed?</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id_will_change%21-instance-method" class="signature"><strong>#id_will_change!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#path%3AString-instance-method" class="signature"><strong>#path</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#path%21-instance-method" class="signature"><strong>#path!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#path%3D%28_path%3AString%29-instance-method" class="signature"><strong>#path=</strong>(_path : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#path%3D%28_path%3AAttrType%29-instance-method" class="signature"><strong>#path=</strong>(_path : AttrType)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#path_changed%3F%3ABool-instance-method" class="signature"><strong>#path_changed?</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#path_will_change%21-instance-method" class="signature"><strong>#path_will_change!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#snake_id%3AString-instance-method" class="signature"><strong>#snake_id</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#snake_id%21-instance-method" class="signature"><strong>#snake_id!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#snake_id%3D%28_snake_id%3AString%29-instance-method" class="signature"><strong>#snake_id=</strong>(_snake_id : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#snake_id%3D%28_snake_id%3AAttrType%29-instance-method" class="signature"><strong>#snake_id=</strong>(_snake_id : AttrType)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#snake_id_changed%3F%3ABool-instance-method" class="signature"><strong>#snake_id_changed?</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#snake_id_will_change%21-instance-method" class="signature"><strong>#snake_id_will_change!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#track_timestamps_on_create-instance-method" class="signature"><strong>#track_timestamps_on_create</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#track_timestamps_on_update-instance-method" class="signature"><strong>#track_timestamps_on_update</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#updated_at%3ATime%3F-instance-method" class="signature"><strong>#updated_at</strong> : Time?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#updated_at%21-instance-method" class="signature"><strong>#updated_at!</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#updated_at%3D%28_updated_at%3AUnion%28Time%2CNil%29%29-instance-method" class="signature"><strong>#updated_at=</strong>(_updated_at : Union(Time, Nil))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#updated_at%3D%28_updated_at%3AString%29-instance-method" class="signature"><strong>#updated_at=</strong>(_updated_at : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#updated_at%3D%28_updated_at%3AAttrType%29-instance-method" class="signature"><strong>#updated_at=</strong>(_updated_at : AttrType)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#updated_at_changed%3F%3ABool-instance-method" class="signature"><strong>#updated_at_changed?</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#updated_at_will_change%21-instance-method" class="signature"><strong>#updated_at_will_change!</strong></a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(values:Hash(Symbol,AttrType)|NamedTuple,new_record)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(values : Hash(Symbol, <a href="Turn/AttrType.html">AttrType</a>) | NamedTuple, new_record)
+
+        <a class="method-permalink" href="#new%28values%3AHash%28Symbol%2CAttrType%29%7CNamedTuple%2Cnew_record%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Accepts symbol hash or named tuple, stringify it and calls constructor with string-based keys hash.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="_context-class-method">
+      <div class="signature">
+        
+        def self.<strong>_context</strong>
+
+        <a class="method-permalink" href="#_context-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="_created_at-class-method">
+      <div class="signature">
+        
+        def self.<strong>_created_at</strong>
+
+        <a class="method-permalink" href="#_created_at-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="_dead-class-method">
+      <div class="signature">
+        
+        def self.<strong>_dead</strong>
+
+        <a class="method-permalink" href="#_dead-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="_game_id-class-method">
+      <div class="signature">
+        
+        def self.<strong>_game_id</strong>
+
+        <a class="method-permalink" href="#_game_id-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="_id-class-method">
+      <div class="signature">
+        
+        def self.<strong>_id</strong>
+
+        <a class="method-permalink" href="#_id-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="_path-class-method">
+      <div class="signature">
+        
+        def self.<strong>_path</strong>
+
+        <a class="method-permalink" href="#_path-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="_snake_id-class-method">
+      <div class="signature">
+        
+        def self.<strong>_snake_id</strong>
+
+        <a class="method-permalink" href="#_snake_id-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="_updated_at-class-method">
+      <div class="signature">
+        
+        def self.<strong>_updated_at</strong>
+
+        <a class="method-permalink" href="#_updated_at-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="column_names:Array(String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>column_names</strong> : Array(String)
+
+        <a class="method-permalink" href="#column_names%3AArray%28String%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="context:String-instance-method">
+      <div class="signature">
+        
+        def <strong>context</strong> : String
+
+        <a class="method-permalink" href="#context%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="context!-instance-method">
+      <div class="signature">
+        
+        def <strong>context!</strong>
+
+        <a class="method-permalink" href="#context%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="context=(_context:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>context=</strong>(_context : String)
+
+        <a class="method-permalink" href="#context%3D%28_context%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="context=(_context:AttrType)-instance-method">
+      <div class="signature">
+        
+        def <strong>context=</strong>(_context : <a href="Turn/AttrType.html">AttrType</a>)
+
+        <a class="method-permalink" href="#context%3D%28_context%3AAttrType%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="context_changed?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>context_changed?</strong> : Bool
+
+        <a class="method-permalink" href="#context_changed%3F%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="context_will_change!-instance-method">
+      <div class="signature">
+        
+        def <strong>context_will_change!</strong>
+
+        <a class="method-permalink" href="#context_will_change%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="created_at:Time?-instance-method">
+      <div class="signature">
+        
+        def <strong>created_at</strong> : Time?
+
+        <a class="method-permalink" href="#created_at%3ATime%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="created_at!-instance-method">
+      <div class="signature">
+        
+        def <strong>created_at!</strong>
+
+        <a class="method-permalink" href="#created_at%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="created_at=(_created_at:Union(Time,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>created_at=</strong>(_created_at : Union(Time, Nil))
+
+        <a class="method-permalink" href="#created_at%3D%28_created_at%3AUnion%28Time%2CNil%29%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="created_at=(_created_at:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>created_at=</strong>(_created_at : String)
+
+        <a class="method-permalink" href="#created_at%3D%28_created_at%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="created_at=(_created_at:AttrType)-instance-method">
+      <div class="signature">
+        
+        def <strong>created_at=</strong>(_created_at : <a href="Turn/AttrType.html">AttrType</a>)
+
+        <a class="method-permalink" href="#created_at%3D%28_created_at%3AAttrType%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="created_at_changed?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>created_at_changed?</strong> : Bool
+
+        <a class="method-permalink" href="#created_at_changed%3F%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="created_at_will_change!-instance-method">
+      <div class="signature">
+        
+        def <strong>created_at_will_change!</strong>
+
+        <a class="method-permalink" href="#created_at_will_change%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dead:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>dead</strong> : Bool
+
+        <a class="method-permalink" href="#dead%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dead!-instance-method">
+      <div class="signature">
+        
+        def <strong>dead!</strong>
+
+        <a class="method-permalink" href="#dead%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dead=(_dead:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>dead=</strong>(_dead : Bool)
+
+        <a class="method-permalink" href="#dead%3D%28_dead%3ABool%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dead=(_dead:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>dead=</strong>(_dead : String)
+
+        <a class="method-permalink" href="#dead%3D%28_dead%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dead=(_dead:AttrType)-instance-method">
+      <div class="signature">
+        
+        def <strong>dead=</strong>(_dead : <a href="Turn/AttrType.html">AttrType</a>)
+
+        <a class="method-permalink" href="#dead%3D%28_dead%3AAttrType%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dead?-instance-method">
+      <div class="signature">
+        
+        def <strong>dead?</strong>
+
+        <a class="method-permalink" href="#dead%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dead_changed?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>dead_changed?</strong> : Bool
+
+        <a class="method-permalink" href="#dead_changed%3F%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dead_will_change!-instance-method">
+      <div class="signature">
+        
+        def <strong>dead_will_change!</strong>
+
+        <a class="method-permalink" href="#dead_will_change%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="destroy:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>destroy</strong> : Bool
+
+        <a class="method-permalink" href="#destroy%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from class Jennifer::Model::Base
+            </div>
+          
+          <p>Deletes object from db and calls all related callbacks.</p>
+<p>It returns <code>true</code> if the object was successfully deleted.</p>
+<pre><code class="language-crystal"><span class="t">Contact</span>.first!.destroy <span class="c"># =&gt; true</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="game_id:String-instance-method">
+      <div class="signature">
+        
+        def <strong>game_id</strong> : String
+
+        <a class="method-permalink" href="#game_id%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="game_id!-instance-method">
+      <div class="signature">
+        
+        def <strong>game_id!</strong>
+
+        <a class="method-permalink" href="#game_id%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="game_id=(_game_id:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>game_id=</strong>(_game_id : String)
+
+        <a class="method-permalink" href="#game_id%3D%28_game_id%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="game_id=(_game_id:AttrType)-instance-method">
+      <div class="signature">
+        
+        def <strong>game_id=</strong>(_game_id : <a href="Turn/AttrType.html">AttrType</a>)
+
+        <a class="method-permalink" href="#game_id%3D%28_game_id%3AAttrType%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="game_id_changed?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>game_id_changed?</strong> : Bool
+
+        <a class="method-permalink" href="#game_id_changed%3F%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="game_id_will_change!-instance-method">
+      <div class="signature">
+        
+        def <strong>game_id_will_change!</strong>
+
+        <a class="method-permalink" href="#game_id_will_change%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id:Int64?-instance-method">
+      <div class="signature">
+        
+        def <strong>id</strong> : Int64?
+
+        <a class="method-permalink" href="#id%3AInt64%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id!-instance-method">
+      <div class="signature">
+        
+        def <strong>id!</strong>
+
+        <a class="method-permalink" href="#id%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id=(_id:Union(Int64,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>id=</strong>(_id : Union(Int64, Nil))
+
+        <a class="method-permalink" href="#id%3D%28_id%3AUnion%28Int64%2CNil%29%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id=(_id:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>id=</strong>(_id : String)
+
+        <a class="method-permalink" href="#id%3D%28_id%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id=(_id:Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>id=</strong>(_id : Int32)
+
+        <a class="method-permalink" href="#id%3D%28_id%3AInt32%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id=(_id:AttrType)-instance-method">
+      <div class="signature">
+        
+        def <strong>id=</strong>(_id : <a href="Turn/AttrType.html">AttrType</a>)
+
+        <a class="method-permalink" href="#id%3D%28_id%3AAttrType%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id_changed?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>id_changed?</strong> : Bool
+
+        <a class="method-permalink" href="#id_changed%3F%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id_will_change!-instance-method">
+      <div class="signature">
+        
+        def <strong>id_will_change!</strong>
+
+        <a class="method-permalink" href="#id_will_change%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="path:String-instance-method">
+      <div class="signature">
+        
+        def <strong>path</strong> : String
+
+        <a class="method-permalink" href="#path%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="path!-instance-method">
+      <div class="signature">
+        
+        def <strong>path!</strong>
+
+        <a class="method-permalink" href="#path%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="path=(_path:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>path=</strong>(_path : String)
+
+        <a class="method-permalink" href="#path%3D%28_path%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="path=(_path:AttrType)-instance-method">
+      <div class="signature">
+        
+        def <strong>path=</strong>(_path : <a href="Turn/AttrType.html">AttrType</a>)
+
+        <a class="method-permalink" href="#path%3D%28_path%3AAttrType%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="path_changed?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>path_changed?</strong> : Bool
+
+        <a class="method-permalink" href="#path_changed%3F%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="path_will_change!-instance-method">
+      <div class="signature">
+        
+        def <strong>path_will_change!</strong>
+
+        <a class="method-permalink" href="#path_will_change%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="snake_id:String-instance-method">
+      <div class="signature">
+        
+        def <strong>snake_id</strong> : String
+
+        <a class="method-permalink" href="#snake_id%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="snake_id!-instance-method">
+      <div class="signature">
+        
+        def <strong>snake_id!</strong>
+
+        <a class="method-permalink" href="#snake_id%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="snake_id=(_snake_id:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>snake_id=</strong>(_snake_id : String)
+
+        <a class="method-permalink" href="#snake_id%3D%28_snake_id%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="snake_id=(_snake_id:AttrType)-instance-method">
+      <div class="signature">
+        
+        def <strong>snake_id=</strong>(_snake_id : <a href="Turn/AttrType.html">AttrType</a>)
+
+        <a class="method-permalink" href="#snake_id%3D%28_snake_id%3AAttrType%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="snake_id_changed?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>snake_id_changed?</strong> : Bool
+
+        <a class="method-permalink" href="#snake_id_changed%3F%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="snake_id_will_change!-instance-method">
+      <div class="signature">
+        
+        def <strong>snake_id_will_change!</strong>
+
+        <a class="method-permalink" href="#snake_id_will_change%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="track_timestamps_on_create-instance-method">
+      <div class="signature">
+        
+        def <strong>track_timestamps_on_create</strong>
+
+        <a class="method-permalink" href="#track_timestamps_on_create-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/35ad64192026b4d948e097b1d2110185f70ad2a9/src/models/turn.cr#L6" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="track_timestamps_on_update-instance-method">
+      <div class="signature">
+        
+        def <strong>track_timestamps_on_update</strong>
+
+        <a class="method-permalink" href="#track_timestamps_on_update-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/35ad64192026b4d948e097b1d2110185f70ad2a9/src/models/turn.cr#L6" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="updated_at:Time?-instance-method">
+      <div class="signature">
+        
+        def <strong>updated_at</strong> : Time?
+
+        <a class="method-permalink" href="#updated_at%3ATime%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="updated_at!-instance-method">
+      <div class="signature">
+        
+        def <strong>updated_at!</strong>
+
+        <a class="method-permalink" href="#updated_at%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="updated_at=(_updated_at:Union(Time,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>updated_at=</strong>(_updated_at : Union(Time, Nil))
+
+        <a class="method-permalink" href="#updated_at%3D%28_updated_at%3AUnion%28Time%2CNil%29%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="updated_at=(_updated_at:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>updated_at=</strong>(_updated_at : String)
+
+        <a class="method-permalink" href="#updated_at%3D%28_updated_at%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="updated_at=(_updated_at:AttrType)-instance-method">
+      <div class="signature">
+        
+        def <strong>updated_at=</strong>(_updated_at : <a href="Turn/AttrType.html">AttrType</a>)
+
+        <a class="method-permalink" href="#updated_at%3D%28_updated_at%3AAttrType%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="updated_at_changed?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>updated_at_changed?</strong> : Bool
+
+        <a class="method-permalink" href="#updated_at_changed%3F%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="updated_at_will_change!-instance-method">
+      <div class="signature">
+        
+        def <strong>updated_at_will_change!</strong>
+
+        <a class="method-permalink" href="#updated_at_will_change%21-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
