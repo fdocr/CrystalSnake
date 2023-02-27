@@ -8,7 +8,7 @@ jobs:
   Tests:
     runs-on: ubuntu-latest
     env:
-      DATABASE_URI: postgres://postgres:postgres@localhost:5432/cmm-test
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/battlesnake-test
       KEMAL_ENV: test
 
     services:
@@ -23,6 +23,10 @@ jobs:
           --health-retries 5
         ports:
           - 5432:5432
+      redis:
+        image: redis
+        ports:
+          - 6379:6379
 
     steps:
       - name: Download source
