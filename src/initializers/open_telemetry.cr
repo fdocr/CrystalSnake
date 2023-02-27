@@ -2,7 +2,7 @@ require "opentelemetry"
 
 class OpenTelemetryHandler < Kemal::Handler
   def call(context)
-    OpenTelemetry.trace "crystal-snake" do |span|
+    OpenTelemetry.trace "kemal" do |span|
       span.kind = :server
       span["http.server_name"] = context.request.headers["Host"]?
       span["http.client_ip"] = context.request.headers["x-forward-for"]? || context.request.remote_address.as(Socket::IPAddress).address
