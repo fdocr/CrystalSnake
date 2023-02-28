@@ -7,6 +7,7 @@ RUN shards install -v
 # Build a binary
 COPY . /opt/
 RUN crystal build --static --release ./src/app.cr
+RUN crystal build --static --release ./src/worker.cr
 # ===============
 # Result image with one layer
 FROM alpine:latest

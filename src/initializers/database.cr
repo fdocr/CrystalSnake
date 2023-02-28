@@ -2,7 +2,7 @@ require "kemal"
 require "jennifer"
 require "jennifer/adapter/postgres"
 
-log_level = Kemal.config.env == "development" ? Log::Severity::Info : Log::Severity::Error
+log_level = Kemal.config.env == "development" ? Log::Severity::Notice : Log::Severity::Error
 
 Jennifer::Config.configure do |conf|
   conf.from_uri(ENV["DATABASE_URL"]) if ENV.has_key?("DATABASE_URL")
