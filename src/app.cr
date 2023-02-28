@@ -69,7 +69,7 @@ end
 get "/games" do |env|
   offset = (env.params.query["page"]? || 0).to_i * 50
   count = Turn.where { _path == "/end" }.count
-  end_turns = Turn.where { _path == "/end" }.limit(50).offset(offset)
+  end_turns = Turn.where { _path == "/end" }.limit(50).offset(offset).order(id: :desc)
   render "src/views/games.ecr", "src/views/layout.ecr"
 end
 
