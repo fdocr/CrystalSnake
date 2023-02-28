@@ -56,8 +56,18 @@
       
     </li>
   
+  <li class=" " data-id="CrystalSnake/ApplicationJob" data-name="applicationjob">
+      <a href="ApplicationJob.html">ApplicationJob</a>
+      
+    </li>
+  
   <li class=" " data-id="CrystalSnake/ApplicationRecord" data-name="applicationrecord">
       <a href="ApplicationRecord.html">ApplicationRecord</a>
+      
+    </li>
+  
+  <li class=" " data-id="CrystalSnake/AppLogHandler" data-name="apploghandler">
+      <a href="AppLogHandler.html">AppLogHandler</a>
       
     </li>
   
@@ -113,6 +123,11 @@
   
   <li class=" " data-id="CrystalSnake/OpenTelemetryHandler" data-name="opentelemetryhandler">
       <a href="OpenTelemetryHandler.html">OpenTelemetryHandler</a>
+      
+    </li>
+  
+  <li class=" " data-id="CrystalSnake/PersistTurnJob" data-name="persistturnjob">
+      <a href="PersistTurnJob.html">PersistTurnJob</a>
       
     </li>
   
@@ -194,7 +209,7 @@
     <use href="#octicon-link"/>
   </svg>
 </a>Installation</h2>
-<p>The app uses <a href="https://github.com/imdrasil/sam.cr">sam.cr</a> for ease of development</p>
+<p>You'll need Crystal, Postgres 14 &amp; Redis locally. The app uses <a href="https://github.com/imdrasil/sam.cr">sam.cr</a> for ease of development.</p>
 <pre><code class="language-bash"># Install dependencies
 shards install
 
@@ -211,6 +226,12 @@ STRATEGY=&quot;ChaseClosestFood&quot; make sam dev</code></pre>
     <use href="#octicon-link"/>
   </svg>
 </a>Development</h2>
+<p>The app can be configured using an <code>.env</code> file (example below)</p>
+<pre><code class="language-bash">DATABASE_URL=&quot;postgresql://localhost:5432/battlesnake&quot;
+REDIS_URL=&quot;redis://localhost:6379&quot;
+HONEYCOMB_API_KEY=&quot;&lt;API_KEY&gt;&quot;
+STRATEGY=&quot;CautiousCarol&quot;
+LOG_LEVEL=&quot;DEBUG&quot;</code></pre>
 <p>For local development I use the <a href="https://github.com/BattlesnakeOfficial/rules/tree/main/cli">BattleSnake CLI</a> with the local server running. A basic example looks like this:</p>
 <pre><code class="language-bash"># Solo game
 battlesnake play -W 11 -H 11 --name dev --url http://localhost:8080 -g solo -v
@@ -232,12 +253,13 @@ battlesnake play -W 11 -H 11 --name dev --url http://localhost:8080  --name dev2
 </a>Deployment</h2>
 <p>I'm currently using <a href="https://www.digitalocean.com/products/app-platform">DigitalOcean App Platform</a>. The <a href="/Dockerfile">Dockerfile</a> is detected and deployed on their cheapest tier. It &quot;should work&quot; in lots of other platforms with this setup, but <a href="https://github.com/fdocr/CrystalSnake/issues/new">open an issue</a> if you need help troubleshooting or to discuss other solutions.</p>
 <p><strong>Customizations</strong></p>
-<p>| ENV Variable  | Customization               |
-| ------------- | -------------               |
-| STRATEGY      | Strategy class name to use  |
-| SNAKE_COLOR   | Snake color (i.e. &quot;#cccccc&quot;)|
-| SNAKE_HEAD    | Snake head                  |
-| SNAKE_TAIL    | Snake Tail                  |</p>
+<p>ENV variables are used to <a href="https://docs.battlesnake.com/guides/customizations">customize your snake</a></p>
+<ul>
+<li><code>SNAKE_COLOR</code> (i.e. &quot;#cccccc&quot;)</li>
+<li><code>SNAKE_HEAD</code></li>
+<li><code>SNAKE_TAIL</code></li>
+<li><code>STRATEGY</code> (i.e. &quot;CautiousCarol&quot;)</li>
+</ul>
 <h2><a id="contributing" class="anchor" href="#contributing">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>

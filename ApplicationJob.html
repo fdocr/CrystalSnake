@@ -13,7 +13,7 @@
 <script type="text/javascript" src="js/doc.js"></script>
 
   <meta name="repository-name" content="CrystalSnake">
-  <title>BattleSnake - CrystalSnake main</title>
+  <title>ApplicationJob - CrystalSnake main</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "";
   </script>
@@ -56,7 +56,7 @@
       
     </li>
   
-  <li class=" " data-id="CrystalSnake/ApplicationJob" data-name="applicationjob">
+  <li class=" current" data-id="CrystalSnake/ApplicationJob" data-name="applicationjob">
       <a href="ApplicationJob.html">ApplicationJob</a>
       
     </li>
@@ -71,7 +71,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="CrystalSnake/BattleSnake" data-name="battlesnake">
+  <li class="parent " data-id="CrystalSnake/BattleSnake" data-name="battlesnake">
       <a href="BattleSnake.html">BattleSnake</a>
       
         <ul>
@@ -200,11 +200,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">module</span> BattleSnake
+  <span class="kind">abstract class</span> ApplicationJob
 
 </h1>
 
 
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="ApplicationJob.html">ApplicationJob</a></li><li class="superclass">Mosquito::QueuedJob</li><li class="superclass">Mosquito::Job</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -215,6 +216,21 @@
 
 
 
+
+
+  <h2>
+    <a id="direct-known-subclasses" class="anchor" href="#direct-known-subclasses">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct Known Subclasses
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="PersistTurnJob.html">PersistTurnJob</a></li>
+    
+  </ul>
 
 
 
@@ -231,8 +247,8 @@
   </h2>
   
     
-      <a href="https://github.com/fdocr/CrystalSnake/blob/eeeec094987f6e44c90a5ce017e6dee3b85acd11/src/battle_snake/board.cr#L8" target="_blank">
-        battle_snake/board.cr
+      <a href="https://github.com/fdocr/CrystalSnake/blob/eeeec094987f6e44c90a5ce017e6dee3b85acd11/src/jobs/application_job.cr#L3" target="_blank">
+        jobs/application_job.cr
       </a>
     
     <br/>
@@ -244,22 +260,233 @@
 
 
 
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#job_name-class-method" class="signature"><strong>.job_name</strong></a>
+        
+      </li>
+    
+  </ul>
 
 
 
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#build_job_run-instance-method" class="signature"><strong>#build_job_run</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#perform-instance-method" class="signature"><strong>#perform</strong></a>
+        
+          <div class="summary"><p>abstract, override in a Job descendant to do something productive</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="macro-summary" class="anchor" href="#macro-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Macro Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#params%28%2Aparameters%29-macro" class="signature"><strong>params</strong>(*parameters)</a>
+        
+      </li>
+    
+  </ul>
 
 
 
 <div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
   
 </div>
 
 
 
 
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="job_name-class-method">
+      <div class="signature">
+        
+        def self.<strong>job_name</strong>
+
+        <a class="method-permalink" href="#job_name-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/eeeec094987f6e44c90a5ce017e6dee3b85acd11/src/jobs/application_job.cr#L3" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="build_job_run-instance-method">
+      <div class="signature">
+        
+        def <strong>build_job_run</strong>
+
+        <a class="method-permalink" href="#build_job_run-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/eeeec094987f6e44c90a5ce017e6dee3b85acd11/src/jobs/application_job.cr#L3" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="perform-instance-method">
+      <div class="signature">
+        
+        def <strong>perform</strong>
+
+        <a class="method-permalink" href="#perform-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from class Mosquito::Job
+            </div>
+          
+          <p>abstract, override in a Job descendant to do something productive</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/eeeec094987f6e44c90a5ce017e6dee3b85acd11/src/jobs/application_job.cr#L4" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="macro-detail" class="anchor" href="#macro-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Macro Detail
+  </h2>
+  
+    <div class="entry-detail" id="params(*parameters)-macro">
+      <div class="signature">
+        
+        macro <strong>params</strong>(*parameters)
+
+        <a class="method-permalink" href="#params%28%2Aparameters%29-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/eeeec094987f6e44c90a5ce017e6dee3b85acd11/src/jobs/application_job.cr#L3" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 </div>
