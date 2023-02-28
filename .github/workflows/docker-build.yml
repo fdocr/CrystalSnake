@@ -1,7 +1,7 @@
 name: Docker build
 on:
   push:
-    branches: [main, revert-19-revert-18-mosquito-integration]
+    branches: [main]
   pull_request:
     branches: [main, revert-19-revert-18-mosquito-integration]
 jobs:
