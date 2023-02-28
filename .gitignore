@@ -4,4 +4,6 @@
 /.shards/
 *.dwarf
 app
+worker
+money_hack
 .env

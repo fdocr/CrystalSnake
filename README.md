@@ -6,7 +6,7 @@ I strongly recommend reading the docs in [https://fdocr.github.io/CrystalSnake/]
 
 ## Installation
 
-The app uses [sam.cr](https://github.com/imdrasil/sam.cr) for ease of development
+You'll need Crystal, Postgres 14 & Redis locally. The app uses [sam.cr](https://github.com/imdrasil/sam.cr) for ease of development.
 
 ```bash
 # Install dependencies
@@ -24,6 +24,16 @@ STRATEGY="ChaseClosestFood" make sam dev
 
 ## Development
 
+The app can be configured using an `.env` file (example below)
+
+```bash
+DATABASE_URL="postgresql://localhost:5432/battlesnake"
+REDIS_URL="redis://localhost:6379"
+HONEYCOMB_API_KEY="<API_KEY>"
+STRATEGY="CautiousCarol"
+LOG_LEVEL="DEBUG"
+```
+
 For local development I use the [BattleSnake CLI](https://github.com/BattlesnakeOfficial/rules/tree/main/cli) with the local server running. A basic example looks like this:
 
 ```bash
@@ -33,7 +43,6 @@ battlesnake play -W 11 -H 11 --name dev --url http://localhost:8080 -g solo -v
 # 1v1 against itself (you should be able to use any public snake if you know their URL)
 battlesnake play -W 11 -H 11 --name dev --url http://localhost:8080  --name dev2 --url http://localhost:8080 -v
 ```
-
 
 #### Strategies & Architecture
 
@@ -49,12 +58,12 @@ I'm currently using [DigitalOcean App Platform](https://www.digitalocean.com/pro
 
 **Customizations**
 
-| ENV Variable  | Customization               |
-| ------------- | -------------               |
-| STRATEGY      | Strategy class name to use  |
-| SNAKE_COLOR   | Snake color (i.e. "#cccccc")|
-| SNAKE_HEAD    | Snake head                  |
-| SNAKE_TAIL    | Snake Tail                  |
+ENV variables are used to [customize your snake](https://docs.battlesnake.com/guides/customizations)
+
+- `SNAKE_COLOR` (i.e. "#cccccc")
+- `SNAKE_HEAD`
+- `SNAKE_TAIL`
+- `STRATEGY` (i.e. "CautiousCarol")
 
 ## Contributing
 
