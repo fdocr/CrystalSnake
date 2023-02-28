@@ -10,5 +10,3 @@ Jennifer::Config.configure do |conf|
   conf.adapter = "postgres"
   conf.pool_size = (ENV["DB_POOL"] ||= "5").to_i
 end
-
-Log.setup "db", log_level, Log::IOBackend.new(formatter: Jennifer::Adapter::DBFormatter)

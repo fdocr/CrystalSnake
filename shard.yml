@@ -27,8 +27,7 @@ dependencies:
     version: ~> 0.5.0
   mosquito:
     github: mosquito-cr/mosquito
-    branch: master
-    # version: 1.0.0.rc3
+    version: 1.0.0.rc3
 
 development_dependencies:
   sam:
