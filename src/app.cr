@@ -5,17 +5,18 @@ require "./strategy/**"
 
 require "dotenv"
 Dotenv.load if File.exists?(".env")
+
+require "sidekiq"
 require "./initializers/**"
 require "./models/**"
+require "./workers/**"
+
+Sidekiq::Client.default_context = Sidekiq::Client::Context.new
 
 macro persist_turn!
-  dead = context.board.snakes.find { |s| s.id == context.you.id }.nil?
-  Turn.create(
-    game_id: context.game.id,
-    snake_id: context.you.id,
-    context: env.params.json.to_json,
-    path: env.request.path,
-    dead: dead
+  PersistTurnWorker.async.perform(
+    env.request.path,
+    env.params.json.to_json
   )
 end
 

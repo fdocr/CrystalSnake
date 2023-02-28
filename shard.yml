@@ -11,6 +11,7 @@ targets:
 dependencies:
   kemal:
     github: kemalcr/kemal
+    version: ~> 1.3.0
   priority-queue:
     github: spider-gazelle/priority-queue
   opentelemetry:
@@ -25,6 +26,10 @@ dependencies:
   dotenv:
     github: drum445/dotenv
     version: ~> 0.5.0
+  sidekiq:
+    # path: /Users/fdoxyz/iandi/crystal/sidekiq.cr
+    github: fdocr/sidekiq.cr
+    branch: pool_timeout-to-use-time-span
 
 development_dependencies:
   sam:
