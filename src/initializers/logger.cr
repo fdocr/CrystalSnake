@@ -15,9 +15,11 @@ class AppLogHandler < Kemal::BaseLogHandler
 end
 Kemal.config.logger = AppLogHandler.new
 
-# Configure log level. INFO by default, then using "LOG_LEVEL" ENV var if 
+# Configure log level. INFO by default, then using "LOG_LEVEL" ENV var if
 # available. If ENV var isn't available the default for production environments
 # changes to ERROR
+#
+# TODO: This is copy&pasted in src/initializers/database.cr and that's not good
 log_level = Log::Severity::Info
 if ENV["LOG_LEVEL"]?.presence
   case ENV["LOG_LEVEL"]
