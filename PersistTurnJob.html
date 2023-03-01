@@ -233,7 +233,7 @@
   </h2>
   
     
-      <a href="https://github.com/fdocr/CrystalSnake/blob/8afc273aab6753ee2dc85a6a2d6d61a5cdf5ac88/src/jobs/persist_turn_job.cr#L3" target="_blank">
+      <a href="https://github.com/fdocr/CrystalSnake/blob/c26f68684d1f7d828e9d3d76ef10fe48ed175075/src/jobs/persist_turn_job.cr#L3" target="_blank">
         jobs/persist_turn_job.cr
       </a>
     
@@ -299,6 +299,8 @@
     
       <li class="entry-summary">
         <a href="#build_job_run-instance-method" class="signature"><strong>#build_job_run</strong></a>
+        
+          <div class="summary"><p>Base class for jobs in the app.</p></div>
         
       </li>
     
@@ -473,7 +475,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/8afc273aab6753ee2dc85a6a2d6d61a5cdf5ac88/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/c26f68684d1f7d828e9d3d76ef10fe48ed175075/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -489,7 +491,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/8afc273aab6753ee2dc85a6a2d6d61a5cdf5ac88/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/c26f68684d1f7d828e9d3d76ef10fe48ed175075/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -517,7 +519,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/8afc273aab6753ee2dc85a6a2d6d61a5cdf5ac88/src/jobs/persist_turn_job.cr#L3" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/c26f68684d1f7d828e9d3d76ef10fe48ed175075/src/jobs/persist_turn_job.cr#L3" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -542,10 +544,23 @@
         <a class="method-permalink" href="#build_job_run-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from class <a href="ApplicationJob.html">ApplicationJob</a>
+            </div>
+          
+          <p>Base class for jobs in the app. Overrides <code>perform</code> so that jobs can
+implement <code><a href="PersistTurnJob.html#trace_perform-instance-method">#trace_perform</a></code> instead. This will allow for OpenTelemetry tracing
+if available, otherwise the job will be executed as it would if it overrides
+<code>perform</code> (mosquito standard). If someone does override <code>perform</code> on the job
+it will also have no behavior effect, other than tracing not taking place.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/8afc273aab6753ee2dc85a6a2d6d61a5cdf5ac88/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/c26f68684d1f7d828e9d3d76ef10fe48ed175075/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -561,7 +576,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/8afc273aab6753ee2dc85a6a2d6d61a5cdf5ac88/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/c26f68684d1f7d828e9d3d76ef10fe48ed175075/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -577,7 +592,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/8afc273aab6753ee2dc85a6a2d6d61a5cdf5ac88/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/c26f68684d1f7d828e9d3d76ef10fe48ed175075/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -593,7 +608,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/8afc273aab6753ee2dc85a6a2d6d61a5cdf5ac88/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/c26f68684d1f7d828e9d3d76ef10fe48ed175075/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -609,7 +624,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/8afc273aab6753ee2dc85a6a2d6d61a5cdf5ac88/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/c26f68684d1f7d828e9d3d76ef10fe48ed175075/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -625,7 +640,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/8afc273aab6753ee2dc85a6a2d6d61a5cdf5ac88/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/c26f68684d1f7d828e9d3d76ef10fe48ed175075/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -641,7 +656,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/8afc273aab6753ee2dc85a6a2d6d61a5cdf5ac88/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/c26f68684d1f7d828e9d3d76ef10fe48ed175075/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -657,7 +672,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/8afc273aab6753ee2dc85a6a2d6d61a5cdf5ac88/src/jobs/persist_turn_job.cr#L6" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/c26f68684d1f7d828e9d3d76ef10fe48ed175075/src/jobs/persist_turn_job.cr#L6" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -673,7 +688,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/8afc273aab6753ee2dc85a6a2d6d61a5cdf5ac88/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/c26f68684d1f7d828e9d3d76ef10fe48ed175075/src/jobs/persist_turn_job.cr#L4" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -701,7 +716,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/8afc273aab6753ee2dc85a6a2d6d61a5cdf5ac88/src/jobs/persist_turn_job.cr#L3" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/c26f68684d1f7d828e9d3d76ef10fe48ed175075/src/jobs/persist_turn_job.cr#L3" target="_blank">View source</a>]
         
       </div>
     </div>
