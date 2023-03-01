@@ -1,7 +1,7 @@
 #! /usr/bin/env crystal
 #
-# To build a standalone command line client, require the
-# driver you wish to use and use `Micrate::Cli`.
+# Runs both the server and worker executables in separate fibers to avoid
+# independent deployments. Motivation is saving costs
 #
 
 channel = Channel(Nil).new
