@@ -4,6 +4,8 @@ This is a [Battle Snake](https://play.battlesnake.com/) project written in [Crys
 
 I strongly recommend reading the docs in [https://fdocr.github.io/CrystalSnake/](https://fdocr.github.io/CrystalSnake/). You'll find detailed information on classes and methods there :)
 
+I wrote a few blog posts about this project. Check out [the first one here](https://dev.to/fdocr/learning-crystal-with-battlesnake-3chj).
+
 ## Installation
 
 You'll need Crystal, Postgres 14 & Redis locally. The app uses [sam.cr](https://github.com/imdrasil/sam.cr) for ease of development.
