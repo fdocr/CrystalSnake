@@ -1,25 +1,12 @@
-# Use Kemal app handler
-class AppLogHandler < Kemal::BaseLogHandler
-  def initialize
-    @handler = HTTP::LogHandler.new
-  end
-
-  def call(context : HTTP::Server::Context)
-    @handler.next = @next
-    @handler.call(context)
-  end
-
-  def write(message : String)
-    Log.info { message.strip }
-  end
-end
-Kemal.config.logger = AppLogHandler.new
+require "kemal"
+require "jennifer"
+require "jennifer/adapter/postgres"
 
 # Configure log level. INFO by default, then using "LOG_LEVEL" ENV var if
 # available. If ENV var isn't available the default for production environments
 # changes to ERROR
 #
-# TODO: This is copy&pasted in src/initializers/database.cr and that's not good
+# TODO: This is copy&pasted in config/logger.cr and that's not good
 log_level = Log::Severity::Info
 if ENV["LOG_LEVEL"]?.presence
   case ENV["LOG_LEVEL"]
@@ -44,11 +31,9 @@ elsif Kemal.config.env == "production"
   log_level = Log::Severity::Error
 end
 
-# Configure Log levels
-Log.setup do |c|
-  backend = Log::IOBackend.new
-
-  c.bind("*", log_level, backend)
-  c.bind("mosquito.*", log_level, backend)
-  c.bind("db", log_level, Log::IOBackend.new(formatter: Jennifer::Adapter::DBFormatter))
+Jennifer::Config.configure do |conf|
+  conf.from_uri(ENV["DATABASE_URL"]) if ENV.has_key?("DATABASE_URL")
+  conf.logger.level = log_level
+  conf.adapter = "postgres"
+  conf.pool_size = (ENV["DB_POOL"] ||= "5").to_i
 end

@@ -40,6 +40,6 @@ development_dependencies:
     github: kemalcr/spec-kemal
     version: ~> 1.0.0
 
-crystal: 1.7.2
+crystal: 1.9.2
 
 license: MIT

@@ -14,6 +14,9 @@ You'll need Crystal, Postgres 14 & Redis locally. The app uses [sam.cr](https://
 # Install dependencies
 shards install
 
+# Create DB & run migrations
+make sam db:setup
+
 # Start development server in port 8080 with live reload
 make sam dev
 

@@ -1,7 +1,7 @@
 require "dotenv"
 Dotenv.load
 
-require "./initializers/database"
+require "../config/database"
 require "sam"
 require "sentry"
 require "../db/migrations/*"

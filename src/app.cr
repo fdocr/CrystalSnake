@@ -5,7 +5,7 @@ require "./strategy/**"
 
 require "dotenv"
 Dotenv.load if File.exists?(".env")
-require "./initializers/**"
+require "../config/**"
 require "./models/**"
 require "./jobs/**"
 
