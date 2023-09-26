@@ -7,6 +7,13 @@ describe "BattleSnake::Context" do
     context.valid_moves(context.you.head)[:moves].should eq(["left", "down", "right"])
   end
 
+  it "returns blast (lookahead) valid moves" do
+    json = File.read("./spec/fixtures/start_small.json")
+    context = BattleSnake::Context.from_json(json)
+    context.blast_valid_moves![:moves].should eq(["left"])
+    context.blast_valid_moves![:risky_moves].should eq(["down", "right"])
+  end
+
   it "should move a snake" do
     json = File.read("./spec/fixtures/start_small.json")
     context = BattleSnake::Context.from_json(json)

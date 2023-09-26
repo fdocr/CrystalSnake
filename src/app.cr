@@ -9,11 +9,15 @@ require "../config/**"
 require "./models/**"
 require "./jobs/**"
 
+persist_to_db = ENV["DISABLE_DB_PERSIST"]?.nil?
+selected_strategy = ENV["STRATEGY"] ||= "RandomValid"
+Log.info { "Selected strategy: #{selected_strategy}" }
+
 macro persist_turn!
   PersistTurnJob.new(
     path: env.request.path,
     context_json: env.params.json.to_json
-  ).enqueue
+  ).enqueue if persist_to_db
 end
 
 def truncate_uuid(str)
@@ -44,9 +48,11 @@ post "/move" do |env|
   context = BattleSnake::Context.from_json(env.params.json.to_json)
   persist_turn!
 
-  case ENV["STRATEGY"] ||= "RandomValid"
+  case selected_strategy
   when "RandomValid"
     move = Strategy::RandomValid.new(context).move
+  when "BlastRandomValid"
+    move = Strategy::BlastRandomValid.new(context).move
   when "ChaseClosestFood"
     move = Strategy::ChaseClosestFood.new(context).move
   when "ChaseRandomFood"
