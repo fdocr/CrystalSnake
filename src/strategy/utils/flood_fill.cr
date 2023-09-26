@@ -19,10 +19,9 @@ def Strategy::Utils.flood_fill(a : BattleSnake::Point, context : BattleSnake::Co
       queue.push(point)
     end
 
-    current = queue.pop
-    area.add(current) unless current.nil?
-
     break if queue.empty?
+    current = queue.pop
+    area.add(current)
   end
 
   area
