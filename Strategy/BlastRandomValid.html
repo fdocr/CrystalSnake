@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="CrystalSnake">
-  <title>Strategy::ChaseClosestFood - CrystalSnake main</title>
+  <title>Strategy::BlastRandomValid - CrystalSnake main</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -137,7 +137,7 @@
       
     </li>
   
-  <li class=" " data-id="CrystalSnake/Strategy/BlastRandomValid" data-name="strategy::blastrandomvalid">
+  <li class=" current" data-id="CrystalSnake/Strategy/BlastRandomValid" data-name="strategy::blastrandomvalid">
       <a href="../Strategy/BlastRandomValid.html">BlastRandomValid</a>
       
     </li>
@@ -147,7 +147,7 @@
       
     </li>
   
-  <li class=" current" data-id="CrystalSnake/Strategy/ChaseClosestFood" data-name="strategy::chaseclosestfood">
+  <li class=" " data-id="CrystalSnake/Strategy/ChaseClosestFood" data-name="strategy::chaseclosestfood">
       <a href="../Strategy/ChaseClosestFood.html">ChaseClosestFood</a>
       
     </li>
@@ -201,12 +201,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Strategy::ChaseClosestFood
+  <span class="kind">class</span> Strategy::BlastRandomValid
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Strategy/ChaseClosestFood.html">Strategy::ChaseClosestFood</a></li><li class="superclass"><a href="../Strategy/Base.html">Strategy::Base</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Strategy/BlastRandomValid.html">Strategy::BlastRandomValid</a></li><li class="superclass"><a href="../Strategy/Base.html">Strategy::Base</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -220,7 +220,9 @@
     Overview
   </h2>
 
-  <p>Strategy that chases the closest food from the board from You</p>
+  <p>A strategy that chooses a random valid move, or &quot;up&quot; if there isn't any.
+Instead of the plain <code>BattleSnake::Conext::valid_moves</code> this strategy
+uses <code>BattleSnake::Conext::valid_moves</code> for a smarter choice if possible.</p>
 
 
 
@@ -245,8 +247,8 @@
   </h2>
   
     
-      <a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/strategy/chase_closest_food.cr#L2" target="_blank">
-        strategy/chase_closest_food.cr
+      <a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/strategy/blast_random_valid.cr#L4" target="_blank">
+        strategy/blast_random_valid.cr
       </a>
     
     <br/>
@@ -369,7 +371,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/strategy/chase_closest_food.cr#L3" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/strategy/blast_random_valid.cr#L5" target="_blank">View source</a>]
         
       </div>
     </div>

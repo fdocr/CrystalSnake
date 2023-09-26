@@ -137,6 +137,11 @@
       
     </li>
   
+  <li class=" " data-id="CrystalSnake/Strategy/BlastRandomValid" data-name="strategy::blastrandomvalid">
+      <a href="../Strategy/BlastRandomValid.html">BlastRandomValid</a>
+      
+    </li>
+  
   <li class=" " data-id="CrystalSnake/Strategy/CautiousCarol" data-name="strategy::cautiouscarol">
       <a href="../Strategy/CautiousCarol.html">CautiousCarol</a>
       
@@ -257,7 +262,7 @@ endpoints.</p>
   </h2>
   
     
-      <a href="https://github.com/fdocr/CrystalSnake/blob/6700e98e3ea1db24d451c94015e46f3ef23c21cd/src/battle_snake/context.cr#L8" target="_blank">
+      <a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/battle_snake/context.cr#L8" target="_blank">
         battle_snake/context.cr
       </a>
     
@@ -298,6 +303,13 @@ endpoints.</p>
     Instance Method Summary
   </h2>
   <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#blast_valid_moves%21-instance-method" class="signature"><strong>#blast_valid_moves!</strong></a>
+        
+          <div class="summary"><p>Similar to <code><a href="../BattleSnake/Context.html#valid_moves%28point%3APoint%29-instance-method">BattleSnake::Context#valid_moves</a></code> but considers all valid moves from enemies.</p></div>
+        
+      </li>
     
       <li class="entry-summary">
         <a href="#board%3ABoard-instance-method" class="signature"><strong>#board</strong> : Board</a>
@@ -341,7 +353,7 @@ endpoints.</p>
       <li class="entry-summary">
         <a href="#move%28snake_id%2Cdirection%29-instance-method" class="signature"><strong>#move</strong>(snake_id, direction)</a>
         
-          <div class="summary"><p>Simulate a move of a snake in some direction</p></div>
+          <div class="summary"><p>Simulate a move of a snake by id in some direction</p></div>
         
       </li>
     
@@ -433,7 +445,7 @@ endpoints.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/6700e98e3ea1db24d451c94015e46f3ef23c21cd/src/battle_snake/context.cr#L9" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/battle_snake/context.cr#L9" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -452,6 +464,38 @@ endpoints.</p>
     Instance Method Detail
   </h2>
   
+    <div class="entry-detail" id="blast_valid_moves!-instance-method">
+      <div class="signature">
+        
+        def <strong>blast_valid_moves!</strong>
+
+        <a class="method-permalink" href="#blast_valid_moves%21-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Similar to <code><a href="../BattleSnake/Context.html#valid_moves%28point%3APoint%29-instance-method">BattleSnake::Context#valid_moves</a></code> but considers all valid
+moves from enemies. Returns a hash with all the valid <code>:moves</code>,
+<code>:neighbors</code> and <code>:risky_moves</code> (we might collide with enemy) available
+for <code><a href="../BattleSnake/Context.html#you%3ASnake-instance-method">#you</a></code>.</p>
+<p><code>:moves</code> is an <code>Array(<a href="../BattleSnake/Point.html">BattleSnake::Point</a>)</code> that containts the directions
+from the given <code>#point</code> that are valid to move without dying
+(<code>&quot;up&quot;/&quot;left&quot;/&quot;down&quot;/&quot;right&quot;</code>).</p>
+<p><code>:risky_moves</code> is an <code>Array(<a href="../BattleSnake/Point.html">BattleSnake::Point</a>)</code> that containts the
+directions from the given <code>#point</code> that are valid to move but there's a
+chance we could die (<code>&quot;up&quot;/&quot;left&quot;/&quot;down&quot;/&quot;right&quot;</code>).</p>
+<p><code>:neighbors</code> is a <code>{} of String =&gt; <a href="../BattleSnake/Point.html">BattleSnake::Point</a></code> that contains those
+directions' coordinates.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/battle_snake/context.cr#L105" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="board:Board-instance-method">
       <div class="signature">
         
@@ -463,7 +507,7 @@ endpoints.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/6700e98e3ea1db24d451c94015e46f3ef23c21cd/src/battle_snake/context.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/battle_snake/context.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -479,7 +523,7 @@ endpoints.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/6700e98e3ea1db24d451c94015e46f3ef23c21cd/src/battle_snake/context.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/battle_snake/context.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -500,7 +544,7 @@ endpoints.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/6700e98e3ea1db24d451c94015e46f3ef23c21cd/src/battle_snake/context.cr#L110" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/battle_snake/context.cr#L186" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -527,7 +571,7 @@ endpoints.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/6700e98e3ea1db24d451c94015e46f3ef23c21cd/src/battle_snake/context.cr#L23" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/battle_snake/context.cr#L23" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -543,7 +587,7 @@ endpoints.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/6700e98e3ea1db24d451c94015e46f3ef23c21cd/src/battle_snake/context.cr#L29" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/battle_snake/context.cr#L29" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -559,7 +603,7 @@ endpoints.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/6700e98e3ea1db24d451c94015e46f3ef23c21cd/src/battle_snake/context.cr#L12" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/battle_snake/context.cr#L12" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -575,7 +619,7 @@ endpoints.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/6700e98e3ea1db24d451c94015e46f3ef23c21cd/src/battle_snake/context.cr#L12" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/battle_snake/context.cr#L12" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -590,13 +634,13 @@ endpoints.</p>
       
         <div class="doc">
           
-          <p>Simulate a move of a snake in some direction</p>
+          <p>Simulate a move of a snake by id in some direction</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/6700e98e3ea1db24d451c94015e46f3ef23c21cd/src/battle_snake/context.cr#L91" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/battle_snake/context.cr#L167" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -612,7 +656,7 @@ endpoints.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/6700e98e3ea1db24d451c94015e46f3ef23c21cd/src/battle_snake/context.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/battle_snake/context.cr#L15" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -628,7 +672,7 @@ endpoints.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/6700e98e3ea1db24d451c94015e46f3ef23c21cd/src/battle_snake/context.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/battle_snake/context.cr#L15" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -666,7 +710,7 @@ turn, which would be in fact valid moves (not counted at the moment).</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/6700e98e3ea1db24d451c94015e46f3ef23c21cd/src/battle_snake/context.cr#L59" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/battle_snake/context.cr#L59" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -682,7 +726,7 @@ turn, which would be in fact valid moves (not counted at the moment).</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/6700e98e3ea1db24d451c94015e46f3ef23c21cd/src/battle_snake/context.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/battle_snake/context.cr#L21" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -698,7 +742,7 @@ turn, which would be in fact valid moves (not counted at the moment).</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/6700e98e3ea1db24d451c94015e46f3ef23c21cd/src/battle_snake/context.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/a994c66774e1c0dd375f55d9b548233e1e653eb3/src/battle_snake/context.cr#L21" target="_blank">View source</a>]
         
       </div>
     </div>
