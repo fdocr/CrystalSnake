@@ -53,6 +53,8 @@ post "/move" do |env|
     move = Strategy::ChaseRandomFood.new(context).move
   when "CautiousCarol"
     move = Strategy::CautiousCarol.new(context).move
+  when "LookaheadLarry"
+    move = Strategy::LookaheadLarry.new(context).move
   else
     move = Strategy::RandomValid.new(context).move
   end
