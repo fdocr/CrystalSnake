@@ -163,10 +163,7 @@ class BattleSnake::Context
     }
   end
 
-
-  # Simulate a move of a snake in some direction
-  # Remove last body point from you taking into account both
-  # context.you and board.snakes
+  # Simulate a move of a snake by id in some direction
   def move(snake_id, direction)
     index = board.snakes.index! { |snake| snake.id == snake_id }
 
