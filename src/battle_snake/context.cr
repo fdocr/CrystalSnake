@@ -163,12 +163,14 @@ class BattleSnake::Context
     }
   end
 
-  # Simulate a move of a snake by id in some direction
-  def move(snake_id, direction)
+  # Simulate a move of a snake by id in some `direction`. Optional param
+  # `pop_body` that defaults as `true`. If false it won't pop the body
+  # of the snake being moved (sometimes snakes may have been popped already)
+  def move(snake_id, direction, pop_body = true)
     index = board.snakes.index! { |snake| snake.id == snake_id }
 
     # delete last body point
-    deleted_point = board.snakes[index].body.pop
+    deleted_point = board.snakes[index].body.pop if pop_body
 
     # Move head
     board.snakes[index].head = board.snakes[index].head.move(direction)
