@@ -21,7 +21,7 @@ task "dev" do
       display_name: "Worker",
       build_command: "crystal build ./src/worker.cr",
       run_command: "./worker",
-      files: [ "./src/**/*" ]
+      files: [ "./src/jobs/*.cr" ]
     )
   ]
 
