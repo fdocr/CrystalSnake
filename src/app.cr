@@ -9,9 +9,17 @@ require "../config/**"
 require "./models/**"
 require "./jobs/**"
 
+add_context_storage_type(Strategy::Base)
 persist_to_db = ENV["DISABLE_DB_PERSIST"]?.nil?
-selected_strategy = ENV["STRATEGY"] ||= "RandomValid"
-Log.info { "Selected strategy: #{selected_strategy}" }
+not_found_response = "
+  <p style='margin-top: 100px;'>
+    <center>
+      Strategy Not Found.
+      <br><br>
+      <a href='https://github.com/fdocr/crystalsnake'>Read usage details</a>
+    </center>
+  </p>
+"
 
 macro persist_turn!
   PersistTurnJob.new(
@@ -25,10 +33,23 @@ def truncate_uuid(str)
 end
 
 before_all do |env|
-  env.response.content_type = "application/json" unless env.request.path =~ /\/games?/
+  next if env.request.path =~ /\/games?/
+
+  env.response.content_type = "application/json"
+  next if env.params.json.empty?
+
+  context = BattleSnake::Context.from_json(env.params.json.to_json)
+  strategy = Strategy.build(env.params.url["strategy"], context)
+  halt env, status_code: 404, response: not_found_response if strategy.nil?
+  env.set("strategy", strategy)
 end
 
-get "/" do
+get "/strategy_not_found" do |env|
+  halt env, status_code: 404, response: not_found_response
+end
+
+# Battlesnake API Endpoints
+get "/:strategy" do |env|
   {
     "apiversion": "1",
     "author": "fdocr",
@@ -39,39 +60,22 @@ get "/" do
   }.to_json
 end
 
-post "/start" do |env|
-  context = BattleSnake::Context.from_json(env.params.json.to_json)
+post "/:strategy/start" do |env|
   persist_turn!
 end
 
-post "/move" do |env|
-  context = BattleSnake::Context.from_json(env.params.json.to_json)
+post "/:strategy/move" do |env|
   persist_turn!
-
-  case selected_strategy
-  when "RandomValid"
-    move = Strategy::RandomValid.new(context).move
-  when "BlastRandomValid"
-    move = Strategy::BlastRandomValid.new(context).move
-  when "ChaseClosestFood"
-    move = Strategy::ChaseClosestFood.new(context).move
-  when "ChaseRandomFood"
-    move = Strategy::ChaseRandomFood.new(context).move
-  when "CautiousCarol"
-    move = Strategy::CautiousCarol.new(context).move
-  else
-    move = Strategy::RandomValid.new(context).move
-  end
-
+  move = env.get("strategy").as(Strategy::Base).move
   res = { "move": move, "shout": "Moving #{move}!" }
   res.to_json
 end
 
-post "/end" do |env|
-  context = BattleSnake::Context.from_json(env.params.json.to_json)
+post "/:strategy/end" do |env|
   persist_turn!
 end
 
+# DB-persisted games
 get "/games" do |env|
   offset = (env.params.query["page"]? || 0).to_i * 50
   count = Turn.where { _path == "/end" }.count
