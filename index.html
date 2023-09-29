@@ -211,7 +211,7 @@
     <use href="#octicon-link"/>
   </svg>
 </a>Installation</h2>
-<p>You'll need Crystal, Postgres 14 &amp; Redis locally. The app uses <a href="https://github.com/imdrasil/sam.cr">sam.cr</a> for ease of development.</p>
+<p>You'll need Crystal, Postgres &amp; Redis locally. The app uses <a href="https://github.com/imdrasil/sam.cr">sam.cr</a> for ease of development.</p>
 <pre><code class="language-bash"># Install dependencies
 shards install
 
@@ -222,35 +222,40 @@ make sam db:setup
 make sam dev
 
 # Run tests
-make sam test
-
-# Use a custom strategy
-STRATEGY=&quot;ChaseClosestFood&quot; make sam dev</code></pre>
+make sam test</code></pre>
 <h2><a id="development" class="anchor" href="#development">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Development</h2>
-<p>The app can be configured using an <code>.env</code> file (example below)</p>
-<pre><code class="language-bash">DATABASE_URL=&quot;postgresql://localhost:5432/battlesnake&quot;
-REDIS_URL=&quot;redis://localhost:6379&quot;
-HONEYCOMB_API_KEY=&quot;&lt;API_KEY&gt;&quot;
-STRATEGY=&quot;CautiousCarol&quot;
-LOG_LEVEL=&quot;DEBUG&quot;</code></pre>
+<p>The app can be configured copying the <code>.env.sample</code> file as <code>.env</code> in the directory root.</p>
 <p>For local development I use the <a href="https://github.com/BattlesnakeOfficial/rules/tree/main/cli">BattleSnake CLI</a> with the local server running. A basic example looks like this:</p>
-<pre><code class="language-bash"># Solo game
-battlesnake play -W 11 -H 11 --name dev --url http://localhost:8080 -g solo -v
+<pre><code class="language-bash"># Solo game with ChaseClosestFood strategy
+battlesnake play -W 11 -H 11 --name dev --url http://localhost:8080/chase_closest_food -g solo -v
 
-# 1v1 against itself (you should be able to use any public snake if you know their URL)
-battlesnake play -W 11 -H 11 --name dev --url http://localhost:8080  --name dev2 --url http://localhost:8080 -v</code></pre>
+# Play RandomValid vs CautiousCarol strategies
+battlesnake play -W 11 -H 11 --name RandomValid --url http://localhost:8080/random_valid  --name CautiousCarol --url http://localhost:8080/cautious_carol -v</code></pre>
 <h4><a id="strategies-architecture" class="anchor" href="#strategies-architecture">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Strategies &amp; Architecture</h4>
-<p>The server is built on the <code>src/app.cr</code> file and you can choose to use any of the available strategies (<a href="https://github.com/fdocr/CrystalSnake/tree/main/src/strategy">list available here</a>).</p>
-<p>To start hacking a new one create a new strategy (in that folder) that inherits from <code>Stategy::Base</code>. They're all initialized with a <code><a href="BattleSnake/Context.html">BattleSnake::Context</a></code> and you call <code>#move</code> method to chose a move to respond with (the method your logic will live). You can re-use strategies within each other, i.e. <code><a href="Strategy/ChaseClosestFood.html">Strategy::ChaseClosestFood</a></code> uses the <code><a href="Strategy/RandomValid.html">Strategy::RandomValid</a></code> strategy when reachable food doesn't exist on the board.</p>
-<p>You can also use <code><a href="Strategy/Utils.html">Strategy::Utils</a></code> class methods like <code>Strategy::Utils.a_star</code> which implements the <a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* Search Algorithm</a> (list of <a href="https://github.com/fdocr/CrystalSnake/tree/main/src/strategy/utils">Utils helper methods</a> available).</p>
+<p>The server is built on the <code>src/app.cr</code> file and you can choose to use <a href="https://github.com/fdocr/CrystalSnake/tree/main/src/strategy">any of the available strategies</a>.</p>
+<p>To start hacking a new one create a new strategy (in the <code>src/strategy</code> folder) that inherits from <code>Stategy::Base</code>. They're all initialized with a <code><a href="BattleSnake/Context.html">BattleSnake::Context</a></code> and the server calls the <code>#move</code> method on it to respond with. You can re-use strategies within each other, i.e. <code><a href="Strategy/ChaseClosestFood.html">Strategy::ChaseClosestFood</a></code> uses the <code><a href="Strategy/RandomValid.html">Strategy::RandomValid</a></code> strategy when it can't reach any food on the board.</p>
+<p>In order to start using a new strategy:</p>
+<ol>
+<li>Add new entry in case clause to <code>src/strategy/base.cr</code>
+<ul>
+<li>Must return the new strategy object</li>
+</ul>
+</li>
+<li>The string in the case clause will determine its path
+<ul>
+<li>i.e. <code>http://localhost:8080/new_strategy</code></li>
+</ul>
+</li>
+</ol>
+<p>Strategies can use <code><a href="Strategy/Utils.html">Strategy::Utils</a></code> class methods like <code>Strategy::Utils.a_star</code> which implements the <a href="https://en.wikipedia.org/wiki/A*_search_algorithm">A* Search Algorithm</a>. Check out the <a href="https://github.com/fdocr/CrystalSnake/tree/main/src/strategy/utils">available Utils helper methods</a>.</p>
 <h2><a id="deployment" class="anchor" href="#deployment">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
@@ -263,13 +268,13 @@ battlesnake play -W 11 -H 11 --name dev --url http://localhost:8080  --name dev2
 <li><code>SNAKE_COLOR</code> (i.e. &quot;#cccccc&quot;)</li>
 <li><code>SNAKE_HEAD</code></li>
 <li><code>SNAKE_TAIL</code></li>
-<li><code>STRATEGY</code> (i.e. &quot;CautiousCarol&quot;)</li>
 </ul>
 <h2><a id="contributing" class="anchor" href="#contributing">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Contributing</h2>
+<p>Make sure to test your changes. First copy <code>.env.sample</code> as <code>.env.test</code> so you can run the test suite with <code>make sam test</code>.</p>
 <ol>
 <li>Fork it (<a href="https://github.com/fdocr/CrystalSnake/fork">https://github.com/fdocr/CrystalSnake/fork</a>)</li>
 <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
