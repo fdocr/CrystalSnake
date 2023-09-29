@@ -38,7 +38,7 @@ shards:
 
   mosquito:
     git: https://github.com/mosquito-cr/mosquito.git
-    version: 1.0.0
+    version: 1.0.0.rc3
 
   mpsc:
     git: https://github.com/jgaskins/mpsc.git

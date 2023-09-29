@@ -48,8 +48,8 @@ before_all do |env|
   env.set("strategy", strategy)
 end
 
-get "/strategy_not_found" do |env|
-  halt env, status_code: 404, response: not_found_response
+get "/" do |env|
+  env.redirect "https://github.com/fdocr/CrystalSnake"
 end
 
 # Battlesnake API Endpoints
@@ -80,10 +80,11 @@ post "/:strategy/end" do |env|
 end
 
 # DB-persisted games
-get "/games" do |env|
+get "/games/:strategy" do |env|
+  strategy = env.params.url["strategy"]
   offset = (env.params.query["page"]? || 0).to_i * 50
-  count = Turn.where { _path == "/end" }.count
-  end_turns = Turn.where { _path == "/end" }.limit(50).offset(offset).order(id: :desc)
+  count = Turn.where { _path == "/#{strategy}/end" }.count
+  end_turns = Turn.where { _path == "/#{strategy}/end" }.limit(50).offset(offset).order(id: :desc)
   render "src/views/games.ecr", "src/views/layout.ecr"
 end
 
