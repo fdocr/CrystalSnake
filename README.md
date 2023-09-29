@@ -66,6 +66,8 @@ ENV variables are used to [customize your snake](https://docs.battlesnake.com/gu
 
 ## Contributing
 
+Make sure to test your changes. First copy `.env.sample` as `.env.test` so you can run the test suite with `make sam test`.
+
 1. Fork it (<https://github.com/fdocr/CrystalSnake/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
