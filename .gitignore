@@ -7,3 +7,4 @@ app
 worker
 bundle
 .env
+.env.test

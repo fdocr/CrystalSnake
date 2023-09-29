@@ -1,5 +1,5 @@
 name: CrystalSnake
-version: 0.1.0
+version: 0.2.0
 
 authors:
   - Fernando Valverde <fernando@fdo.cr>
@@ -14,11 +14,10 @@ dependencies:
   priority-queue:
     github: spider-gazelle/priority-queue
   opentelemetry:
-    github: fdocr/opentelemetry
-    commit: f8a9f89
+    github: jgaskins/opentelemetry
   jennifer:
     github: imdrasil/jennifer.cr
-    commit: 926a1e3
+    version: ~> 0.13.0
   pg:
     github: will/crystal-pg
     version: ~> 0.26.0

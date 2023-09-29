@@ -4,7 +4,11 @@ require "./battle_snake/**"
 require "./strategy/**"
 
 require "dotenv"
-Dotenv.load if File.exists?(".env")
+dev_env = Kemal.config.env == "development"
+Dotenv.load if File.exists?(".env") && dev_env
+test_env = Kemal.config.env == "test"
+Dotenv.load(path: ".env.test") if File.exists?(".env.test") && test_env
+
 require "../config/**"
 require "./models/**"
 require "./jobs/**"

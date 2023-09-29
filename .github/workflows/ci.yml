@@ -10,6 +10,7 @@ jobs:
     env:
       DATABASE_URL: postgres://postgres:postgres@localhost:5432/battlesnake-test
       KEMAL_ENV: test
+      LOG_LEVEL: WARN
 
     services:
       postgres:
