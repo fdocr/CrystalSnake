@@ -15,6 +15,7 @@ dependencies:
     github: spider-gazelle/priority-queue
   opentelemetry:
     github: jgaskins/opentelemetry
+    commit: 891f466
   jennifer:
     github: imdrasil/jennifer.cr
     version: ~> 0.13.0

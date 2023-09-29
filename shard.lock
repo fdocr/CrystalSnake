@@ -46,7 +46,7 @@ shards:
 
   opentelemetry:
     git: https://github.com/jgaskins/opentelemetry.git
-    version: 0.3.4
+    version: 0.3.4+git.commit.891f4663ca763b9bc3aee52d16b6c569c0843c83
 
   pg:
     git: https://github.com/will/crystal-pg.git
