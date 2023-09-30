@@ -27,7 +27,7 @@ class BattleSnake::Context
   end
 
   def enemies
-    @enemies ||= board.snakes.reject { |s| s.id == @context.you.id }
+    board.snakes.reject { |snake| snake.id == you.id }
   end
 
   # Returns a hash with all the valid `:moves` and `:neighbors` available from
@@ -87,12 +87,90 @@ class BattleSnake::Context
     { moves: moves, neighbors: neighbors }
   end
 
-  # Simulate a move of a snake in some direction
-  def move(snake_id, direction)
+  # Similar to `BattleSnake::Context#valid_moves` but considers all valid
+  # moves from enemies. Returns a hash with all the valid `:moves`,
+  # `:neighbors` and `:risky_moves` (we might collide with enemy) available
+  # for `you`.
+  #
+  # `:moves` is an `Array(BattleSnake::Point)` that containts the directions
+  # from the given `#point` that are valid to move without dying
+  # (`"up"/"left"/"down"/"right"`).
+  #
+  # `:risky_moves` is an `Array(BattleSnake::Point)` that containts the
+  # directions from the given `#point` that are valid to move but there's a
+  # chance we could die (`"up"/"left"/"down"/"right"`).
+  #
+  # `:neighbors` is a `{} of String => BattleSnake::Point` that contains those
+  # directions' coordinates.
+  def blast_valid_moves!
+    moves = [] of String
+    risky_moves = [] of String
+
+    # Remove last body point from `you`, taking into account both
+    # `context.you` and `board.snakes` before starting work
+    you.body.pop
+    index = board.snakes.index! { |snake| snake.id == you.id }
+    board.snakes[index].body.pop
+    possible_moves = valid_moves(you.head)
+
+    # Get `valid_moves` for each enemy on the board
+    enemy_valid_moves = {} of String => Array(String)
+    enemies.each_with_index do |snake, index|
+      snake_moves = valid_moves(snake.head)[:moves]
+      enemy_valid_moves[snake.id] = snake_moves unless snake_moves.empty?
+    end
+
+    # Without enemy valid moves we can fallback to our possible_moves as valid
+    return {
+      moves: possible_moves[:moves],
+      neighbors: possible_moves[:neighbors],
+      risky_moves: risky_moves
+    } if enemy_valid_moves.empty?
+
+    # Build contexts for all possible enemy `valid_moves` permutations
+    contexts = [] of BattleSnake::Context
+    permutations = enemy_valid_moves.values
+                                    .map(&.size)
+                                    .reduce { |acc, i| acc * i }
+    permutations.times { contexts << self.dup }
+    contexts.each_with_index do |context, index|
+      # Perform each enemy corresponding move per permutation
+      offset = 1
+      enemy_valid_moves.each do |snake_id, moves|
+        direction = moves[(index / offset).floor.to_i % moves.size]
+        context.move(snake_id, direction)
+        offset = offset * moves.size
+      end
+    end
+
+    possible_moves[:moves].each do |direction|
+      target = possible_moves[:neighbors][direction]
+      collision = contexts.find do |context|
+        context.board.snake_points.includes?(target)
+      end
+
+      if collision.nil?
+        moves << direction
+      else
+        risky_moves << direction
+      end
+    end
+
+    {
+      moves: moves,
+      neighbors: possible_moves[:neighbors],
+      risky_moves: risky_moves
+    }
+  end
+
+  # Simulate a move of a snake by id in some `direction`. Optional param
+  # `pop_body` that defaults as `true`. If false it won't pop the body
+  # of the snake being moved (sometimes snakes may have been popped already)
+  def move(snake_id, direction, pop_body = true)
     index = board.snakes.index! { |snake| snake.id == snake_id }
 
     # delete last body point
-    deleted_point = board.snakes[index].body.pop
+    deleted_point = board.snakes[index].body.pop if pop_body
 
     # Move head
     board.snakes[index].head = board.snakes[index].head.move(direction)

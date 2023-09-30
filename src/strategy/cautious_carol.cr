@@ -4,14 +4,15 @@
 # most open area of the board to avoid enclosed spaces.
 class Strategy::CautiousCarol < Strategy::Base
   def move
+    @context.board.snakes.each { |snake| snake.body.pop }
+    @context.you.body.pop
     valid_moves = @context.valid_moves(@context.you.head)
     return RandomValid.new(@context).move if valid_moves[:moves].empty?
 
     # Check for head-to-head collision possibilities
     dangerous_moves = [] of BattleSnake::Point
-    enemies = @context.board.snakes.reject { |s| s.id == @context.you.id }
-    enemies.each do |snake|
-      next if snake.head <=> @context.you.head > 2
+    @context.enemies.each do |snake|
+      next if (snake.head <=> @context.you.head) > 2
       next if snake.body.size < @context.you.body.size
 
       # Check if we share valid moves (meeting point for collision)
@@ -24,29 +25,33 @@ class Strategy::CautiousCarol < Strategy::Base
       end
     end
 
-    # Attempt to chase closest food unless dangerous move is detected
+    # Calculate chase closest food direction
     closest_food = ChaseClosestFood.new(@context).move
     target_point = @context.you.head.move(closest_food)
+    closest_food_area = 0
+
+    # Use flood fill to check the available space to move for valid_moves and
+    # attempt to avoid small areas
+    flood_fills = {} of Int32 => String
+    contexts = {} of String => BattleSnake::Context
+    valid_moves[:moves].each do |move|
+      contexts[move] = @context.dup
+      contexts[move].move(@context.you.id, move, false)
+      area_size = Utils.flood_fill(contexts[move].you.head, contexts[move]).size
+      flood_fills[area_size] = move
+      closest_food_area = area_size if move == closest_food
+    end
+
+    # Safe move if not considered dangerous (collision) or too small space
     safe_move = dangerous_moves.find { |p| (p <=> target_point).zero? }.nil?
-    return closest_food if safe_move
+    safe_area = closest_food_area >= @context.you.body.size
+    return closest_food if safe_move && safe_area
 
     # Leftover valid moves (not chasing closest food anymore) & fallback to
     # RandomValid if no other moves are available (likely run into own death)
-    safe_moves = valid_moves[:moves].reject { |move| move == closest_food }
-    return RandomValid.new(@context).move if safe_moves.size.zero?
+    return flood_fills[flood_fills.keys.sort.last] if flood_fills.keys.size > 0
 
-    # Use flood fill to pick the valid move with more space to spare as an 
-    # attempt to avoid small areas
-    flood_fills = {} of Int32 => String
-    contexts = [] of BattleSnake::Context
-    safe_moves.size.times { contexts << @context.dup }
-    safe_moves.each_with_index do |move, i|
-      contexts[i].move(@context.you.id, move)
-      area_size = Utils.flood_fill(@context.you.head, contexts[i]).size
-      flood_fills[area_size] = move
-    end
-
-    # Pick the direction with the largest available area
-    flood_fills[flood_fills.keys.sort.last]
+    # Fallback to RandomValid (likely run into own death)
+    RandomValid.new(@context).move
   end
 end
