@@ -88,4 +88,6 @@ get "/games/:strategy" do |env|
   render "src/views/games.ecr", "src/views/layout.ecr"
 end
 
+spawn { Mosquito::Runner.start } unless ENV["EMBED_WORKER"]?.nil?
+
 Kemal.run

@@ -9,15 +9,11 @@ require "../db/migrations/*"
 load_dependencies "jennifer"
 
 task "dev" do
-  build_step = "
-    crystal build ./src/app.cr &&
-    crystal build ./src/worker.cr &&
-    crystal build ./src/bundle.cr
-  "
   sentry = Sentry::ProcessRunner.new(
     display_name: "App",
-    build_command: build_step,
-    run_command: "./bundle",
+    build_command: "crystal build ./src/app.cr",
+    run_command: "./app",
+    run_args: ["-p", "8080"],
     files: [ "./src/**/*", "./config/*.cr" ]
   )
   sentry.run

@@ -35,7 +35,7 @@ development_dependencies:
     version: ~> 0.4.2
   sentry:
     github: samueleaton/sentry
-    version: ~> 0.5.0
+    branch: master
   spec-kemal:
     github: kemalcr/spec-kemal
     version: ~> 1.0.0
