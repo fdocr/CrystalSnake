@@ -24,4 +24,8 @@ task "test" do
   raise "Tests failed!" unless res
 end
 
+task "script" do
+  system "crystal run ./src/script.cr"
+end
+
 Sam.help
