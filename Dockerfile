@@ -12,4 +12,4 @@ RUN crystal build --static --release ./src/app.cr
 FROM alpine:latest
 WORKDIR /
 COPY --from=builder /opt/app .
-ENTRYPOINT ["ls -lha && ./app -p 8080"]
+ENTRYPOINT ["./app", "-p", "\"$PORT\""]
