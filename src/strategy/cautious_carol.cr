@@ -5,6 +5,7 @@
 class Strategy::CautiousCarol < Strategy::Base
   def move
     @context.board.snakes.each { |snake| snake.body.pop }
+    @context.you.body.pop
     valid_moves = @context.valid_moves(@context.you.head)
     return RandomValid.new(@context).move if valid_moves[:moves].empty?
 
