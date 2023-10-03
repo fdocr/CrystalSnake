@@ -234,7 +234,7 @@
   </h2>
   
     
-      <a href="https://github.com/fdocr/CrystalSnake/blob/4a43355feb58d795643e2131d3a891d873c707f7/src/strategy/utils.cr#L1" target="_blank">
+      <a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/strategy/utils.cr#L1" target="_blank">
         strategy/utils.cr
       </a>
     
@@ -268,6 +268,13 @@
         <a href="#flood_fill%28a%3ABattleSnake%3A%3APoint%2Ccontext%3ABattleSnake%3A%3AContext%29-class-method" class="signature"><strong>.flood_fill</strong>(a : BattleSnake::Point, context : BattleSnake::Context)</a>
         
           <div class="summary"><p>Implementation of Flood Fill (<a href="https://en.wikipedia.org/wiki/Flood_fill">read more</a>).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#possible_collisions%28context%3ABattleSnake%3A%3AContext%29-class-method" class="signature"><strong>.possible_collisions</strong>(context : BattleSnake::Context)</a>
+        
+          <div class="summary"><p>Implementation that returns all moves that could cause a collision with another snake which would result in death.</p></div>
         
       </li>
     
@@ -343,7 +350,7 @@ initializations when using helper methods, i.e.
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/4a43355feb58d795643e2131d3a891d873c707f7/src/strategy/utils/a_star.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/strategy/utils/a_star.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -368,7 +375,29 @@ points reachable to that area on the board</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/4a43355feb58d795643e2131d3a891d873c707f7/src/strategy/utils/flood_fill.cr#L7" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/strategy/utils/flood_fill.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="possible_collisions(context:BattleSnake::Context)-class-method">
+      <div class="signature">
+        
+        def self.<strong>possible_collisions</strong>(context : <a href="../BattleSnake/Context.html">BattleSnake::Context</a>)
+
+        <a class="method-permalink" href="#possible_collisions%28context%3ABattleSnake%3A%3AContext%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Implementation that returns all moves that could cause a collision with
+another snake which would result in death.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/strategy/utils/possible_collisions.cr#L3" target="_blank">View source</a>]
         
       </div>
     </div>
