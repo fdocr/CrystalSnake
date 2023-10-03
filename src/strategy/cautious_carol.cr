@@ -10,20 +10,7 @@ class Strategy::CautiousCarol < Strategy::Base
     return RandomValid.new(@context).move if valid_moves[:moves].empty?
 
     # Check for head-to-head collision possibilities
-    dangerous_moves = [] of BattleSnake::Point
-    @context.enemies.each do |snake|
-      next if (snake.head <=> @context.you.head) > 2
-      next if snake.body.size < @context.you.body.size
-
-      # Check if we share valid moves (meeting point for collision)
-      @context.valid_moves(snake.head)[:neighbors].values.each do |point|
-        meeting_point = valid_moves[:neighbors].values.find do |p|
-          (point <=> p).zero?
-        end
-        next if meeting_point.nil?
-        dangerous_moves << point
-      end
-    end
+    dangerous_moves = Utils.possible_collisions(@context)
 
     # Calculate chase closest food direction
     closest_food = ChaseClosestFood.new(@context).move
