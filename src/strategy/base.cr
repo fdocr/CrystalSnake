@@ -23,7 +23,12 @@ module Strategy
   end
 
   abstract class Base
+    @next_context : BattleSnake::Context
+
     def initialize(@context : BattleSnake::Context)
+      @next_context = @context.dup
+      @next_context.board.snakes.each { |snake| snake.body.pop }
+      @next_context.you.body.pop
     end
 
     # Returns the move (direction) to chose based on the *@context*

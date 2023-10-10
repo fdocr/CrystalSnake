@@ -37,6 +37,8 @@ class BattleSnake::Board
     end
   end
 
+  # Returns true if a snake id passed as parameter is alive on the board,
+  # returns false otherwise.
   def living?(id)
     snakes.index { |snake| snake.id == id }
   end

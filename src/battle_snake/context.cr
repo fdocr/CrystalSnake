@@ -20,14 +20,29 @@ class BattleSnake::Context
   @[JSON::Field(key: "you")]
   property you : Snake
 
-  def dup
+  # Method that returns a new `BattleSnake::Context` copy of the instance.
+  # Can pass in false as parameter to avoid incrementing the context's turn
+  # (i.e. `context.dup(false)`).
+  def dup(bump_turn = true)
     new_context = Context.from_json(to_json)
-    new_context.turn = turn + 1
+    new_context.turn = turn + 1 if bump_turn
     new_context
   end
 
+  # Returns an `Array` of `BattleSnake::Snake` snakes from the context that
+  # aren't `you`.
   def enemies
     board.snakes.reject { |snake| snake.id == you.id }
+  end
+
+  # Returns true if `you` won, returns false otherwise.
+  def won?
+    board.living?(you.id) && (board.snakes.size == 1)
+  end
+
+  # Returns true when `you` is dead (lost the game), returns false otherwise.
+  def lost?
+    !board.living?(you.id)
   end
 
   # Returns a hash with all the valid `:moves` and `:neighbors` available from

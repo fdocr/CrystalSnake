@@ -13,6 +13,9 @@ class LTree
     @children = [] of LTree
   end
 
+  def initialize(@value : String, @children : Array(LTree), @parent : LTree? = nil)
+  end
+
   def add(text)
     @children << LTree.new(text, self)
   end
