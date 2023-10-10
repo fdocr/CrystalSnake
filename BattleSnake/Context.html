@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Crystal Docs 1.8.2">
+<meta name="generator" content="Crystal Docs 1.9.2">
 <meta name="crystal_docs.project_version" content="main">
 <meta name="crystal_docs.project_name" content="CrystalSnake">
 
@@ -23,7 +23,7 @@
 
 <svg class="hidden">
   <symbol id="octicon-link" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
   </symbol>
 </svg>
 <input type="checkbox" id="sidebar-btn">
@@ -201,7 +201,7 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> BattleSnake::Context
+  <span class="kind">class</span> BattleSnake::<wbr>Context
 
 </h1>
 
@@ -262,7 +262,7 @@ endpoints.</p>
   </h2>
   
     
-      <a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/battle_snake/context.cr#L8" target="_blank">
+      <a href="https://github.com/fdocr/CrystalSnake/blob/457ba2b30a5c2cb3c9e1d965233e7fdcf93bb54e/src/battle_snake/context.cr#L8" target="_blank">
         battle_snake/context.cr
       </a>
     
@@ -329,14 +329,16 @@ endpoints.</p>
       </li>
     
       <li class="entry-summary">
-        <a href="#dup-instance-method" class="signature"><strong>#dup</strong></a>
+        <a href="#dup%28bump_turn%3Dtrue%29-instance-method" class="signature"><strong>#dup</strong>(bump_turn = <span class="n">true</span>)</a>
         
-          <div class="summary"><p>Returns a shallow copy of this object.</p></div>
+          <div class="summary"><p>Method that returns a new <code><a href="../BattleSnake/Context.html">BattleSnake::Context</a></code> copy of the instance.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#enemies-instance-method" class="signature"><strong>#enemies</strong></a>
+        
+          <div class="summary"><p>Returns an <code>Array</code> of <code><a href="../BattleSnake/Snake.html">BattleSnake::Snake</a></code> snakes from the context that aren't <code><a href="../BattleSnake/Context.html#you%3ASnake-instance-method">#you</a></code>.</p></div>
         
       </li>
     
@@ -347,6 +349,13 @@ endpoints.</p>
     
       <li class="entry-summary">
         <a href="#game%3D%28game%3AGame%29-instance-method" class="signature"><strong>#game=</strong>(game : Game)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#lost%3F-instance-method" class="signature"><strong>#lost?</strong></a>
+        
+          <div class="summary"><p>Returns true when <code><a href="../BattleSnake/Context.html#you%3ASnake-instance-method">#you</a></code> is dead (lost the game), returns false otherwise.</p></div>
         
       </li>
     
@@ -371,6 +380,13 @@ endpoints.</p>
         <a href="#valid_moves%28point%3APoint%29-instance-method" class="signature"><strong>#valid_moves</strong>(point : Point)</a>
         
           <div class="summary"><p>Returns a hash with all the valid <code>:moves</code> and <code>:neighbors</code> available from a given <code><a href="../BattleSnake/Point.html">BattleSnake::Point</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#won%3F-instance-method" class="signature"><strong>#won?</strong></a>
+        
+          <div class="summary"><p>Returns true if <code><a href="../BattleSnake/Context.html#you%3ASnake-instance-method">#you</a></code> won, returns false otherwise.</p></div>
         
       </li>
     
@@ -445,7 +461,7 @@ endpoints.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/battle_snake/context.cr#L9" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/457ba2b30a5c2cb3c9e1d965233e7fdcf93bb54e/src/battle_snake/context.cr#L9" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -491,7 +507,7 @@ directions' coordinates.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/battle_snake/context.cr#L105" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/457ba2b30a5c2cb3c9e1d965233e7fdcf93bb54e/src/battle_snake/context.cr#L120" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -507,7 +523,7 @@ directions' coordinates.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/battle_snake/context.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/457ba2b30a5c2cb3c9e1d965233e7fdcf93bb54e/src/battle_snake/context.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -523,7 +539,7 @@ directions' coordinates.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/battle_snake/context.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/457ba2b30a5c2cb3c9e1d965233e7fdcf93bb54e/src/battle_snake/context.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -544,34 +560,30 @@ directions' coordinates.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/battle_snake/context.cr#L188" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/457ba2b30a5c2cb3c9e1d965233e7fdcf93bb54e/src/battle_snake/context.cr#L203" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="dup-instance-method">
+    <div class="entry-detail" id="dup(bump_turn=true)-instance-method">
       <div class="signature">
         
-        def <strong>dup</strong>
+        def <strong>dup</strong>(bump_turn = <span class="n">true</span>)
 
-        <a class="method-permalink" href="#dup-instance-method">#</a>
+        <a class="method-permalink" href="#dup%28bump_turn%3Dtrue%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-            <div class="doc-inherited">
-              Description copied from class Reference
-            </div>
-          
-          <p>Returns a shallow copy of this object.</p>
-<p>This allocates a new object and copies the contents of
-<code>self</code> into it.</p>
+          <p>Method that returns a new <code><a href="../BattleSnake/Context.html">BattleSnake::Context</a></code> copy of the instance.
+Can pass in false as parameter to avoid incrementing the context's turn
+(i.e. <code>context.dup(false)</code>).</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/battle_snake/context.cr#L23" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/457ba2b30a5c2cb3c9e1d965233e7fdcf93bb54e/src/battle_snake/context.cr#L26" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -584,10 +596,16 @@ directions' coordinates.</p>
         <a class="method-permalink" href="#enemies-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Returns an <code>Array</code> of <code><a href="../BattleSnake/Snake.html">BattleSnake::Snake</a></code> snakes from the context that
+aren't <code><a href="../BattleSnake/Context.html#you%3ASnake-instance-method">#you</a></code>.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/battle_snake/context.cr#L29" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/457ba2b30a5c2cb3c9e1d965233e7fdcf93bb54e/src/battle_snake/context.cr#L34" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -603,7 +621,7 @@ directions' coordinates.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/battle_snake/context.cr#L12" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/457ba2b30a5c2cb3c9e1d965233e7fdcf93bb54e/src/battle_snake/context.cr#L12" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -619,7 +637,28 @@ directions' coordinates.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/battle_snake/context.cr#L12" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/457ba2b30a5c2cb3c9e1d965233e7fdcf93bb54e/src/battle_snake/context.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="lost?-instance-method">
+      <div class="signature">
+        
+        def <strong>lost?</strong>
+
+        <a class="method-permalink" href="#lost%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns true when <code><a href="../BattleSnake/Context.html#you%3ASnake-instance-method">#you</a></code> is dead (lost the game), returns false otherwise.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/457ba2b30a5c2cb3c9e1d965233e7fdcf93bb54e/src/battle_snake/context.cr#L44" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -642,7 +681,7 @@ of the snake being moved (sometimes snakes may have been popped already)</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/battle_snake/context.cr#L169" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/457ba2b30a5c2cb3c9e1d965233e7fdcf93bb54e/src/battle_snake/context.cr#L184" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -658,7 +697,7 @@ of the snake being moved (sometimes snakes may have been popped already)</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/battle_snake/context.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/457ba2b30a5c2cb3c9e1d965233e7fdcf93bb54e/src/battle_snake/context.cr#L15" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -674,7 +713,7 @@ of the snake being moved (sometimes snakes may have been popped already)</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/battle_snake/context.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/457ba2b30a5c2cb3c9e1d965233e7fdcf93bb54e/src/battle_snake/context.cr#L15" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -712,7 +751,28 @@ turn, which would be in fact valid moves (not counted at the moment).</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/battle_snake/context.cr#L59" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/457ba2b30a5c2cb3c9e1d965233e7fdcf93bb54e/src/battle_snake/context.cr#L74" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="won?-instance-method">
+      <div class="signature">
+        
+        def <strong>won?</strong>
+
+        <a class="method-permalink" href="#won%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns true if <code><a href="../BattleSnake/Context.html#you%3ASnake-instance-method">#you</a></code> won, returns false otherwise.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/457ba2b30a5c2cb3c9e1d965233e7fdcf93bb54e/src/battle_snake/context.cr#L39" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -728,7 +788,7 @@ turn, which would be in fact valid moves (not counted at the moment).</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/battle_snake/context.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/457ba2b30a5c2cb3c9e1d965233e7fdcf93bb54e/src/battle_snake/context.cr#L21" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -744,7 +804,7 @@ turn, which would be in fact valid moves (not counted at the moment).</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/fdocr/CrystalSnake/blob/e5a88601ce98a7734f3fd6c84450b956646bb010/src/battle_snake/context.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/fdocr/CrystalSnake/blob/457ba2b30a5c2cb3c9e1d965233e7fdcf93bb54e/src/battle_snake/context.cr#L21" target="_blank">View source</a>]
         
       </div>
     </div>
