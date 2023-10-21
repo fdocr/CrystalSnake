@@ -6,5 +6,12 @@
 app
 worker
 bundle
+mass_nn_training
+script
+train_network
 .env
 .env.test
+*.csv
+/nn_training/*.log
+/nn_training/*.nn
+/nn_training/old/

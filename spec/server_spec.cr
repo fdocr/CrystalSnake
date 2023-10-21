@@ -7,7 +7,8 @@ SUPPORTED_STRATEGIES = [
   "blast_random_valid",
   "chase_closest_food",
   "chase_random_food",
-  "cautious_carol"
+  "cautious_carol",
+  "cc_nn"
 ]
 
 describe "Crystal Snake Battlesnake endpoints for all supported strategies" do
