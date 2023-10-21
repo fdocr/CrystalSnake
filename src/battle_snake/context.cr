@@ -248,4 +248,31 @@ class BattleSnake::Context
       board.snakes.delete(snake)
     end
   end
+
+  def to_nn_input
+    turn_data = Array.new(121, 0.as(Int32 | String))
+    board.food.each do |food|
+      offset = food.x + (food.y * 11)
+      turn_data[offset] = 10
+    end
+
+    snake_counter = 100
+    you.body.each do |point|
+      offset = point.x + (point.y * 11)
+      turn_data[offset] = snake_counter
+      snake_counter += 1
+    end
+
+    enemies.each_with_index do |snake, i|
+      snake_counter = 200 + (i * 100)
+      snake.body.each do |point|
+        offset = point.x + (point.y * 11)
+        turn_data[offset] = snake_counter
+        snake_counter += 1
+      end
+      snake.body
+    end
+
+    turn_data.map(&.to_i32)
+  end
 end

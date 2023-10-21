@@ -17,6 +17,8 @@ module Strategy
       Strategy::ChaseClosestFood.new(context)
     when "cautious_carol"
       Strategy::CautiousCarol.new(context)
+    when "cc_nn"
+      Strategy::CautiousCarolNeuralNetwork.new(context)
     else
       nil
     end
